@@ -63,7 +63,7 @@ public class Testcase
         
         int max = Math.Min(results_cs.Count, cpp_log.Count);
         output.AppendLine($"Output comparisons: {max} (cs: {results_cs.Count}, cpp: {cpp_log.Count})");
-        output.AppendLine("       Query        Expected (C#)        Returned (C++)");
+        output.AppendLine("   Query            Expected (C#)        Returned (C++)");
         
         bool success = true;
         for (int i = 0; i < max; i++)
@@ -71,17 +71,36 @@ public class Testcase
             if (results_cs[i].Trim() == cpp_log[i].Trim())
             {
                 if (!log) continue;
-                output.AppendLine($"{Queries[i]}               {results_cs[i]}                   {cpp_log[i]}");
+                output.AppendLine(Format(Queries[i], results_cs[i], cpp_log[i]));
                 continue;
             }
 
             success = false;
-            output.AppendLine($"[FAIL] {Queries[i]}         {results_cs[i]}                   {cpp_log[i]}");
+            output.AppendLine(Format($"[FAIL] {Queries[i]}", results_cs[i], cpp_log[i]));
         }
 
         if (!log && success) output.AppendLine("\n                [ No Failures to Show ]\n");
         output.AppendLine("---------------------- End of Analysis ----------------------");
         Console.WriteLine(output.ToString());
         return success;
+    }
+
+    private const int QueryStringMaxLength = 20;
+    private const int ResultNumberLength = 5;
+
+    private string Format(string query, string expected, string result)
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.Append(query);
+        for (int i = query.Length; i <= QueryStringMaxLength; ++i) builder.Append(' ');
+        
+        for (int i = expected.Length; i <= ResultNumberLength; ++i) builder.Append(' ');
+        builder.Append(expected);
+
+        builder.Append("               ");
+        for (int i = result.Length; i <= ResultNumberLength; ++i) builder.Append(' ');
+        builder.Append(result);
+
+        return builder.ToString();
     }
 }
