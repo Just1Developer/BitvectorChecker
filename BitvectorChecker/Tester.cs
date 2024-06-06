@@ -71,9 +71,10 @@ public class Tester
         
         // New: Generate Testcase and Input file
         int j = 0;
-        string path = "./input/input";GetWritableDirectory();
+        string path = "./input/input";
+        if (!Directory.Exists("./input/")) Directory.CreateDirectory("./input/");
         while (File.Exists(path + $"{j}.in")) j++;
-        
+
         string _path = $"{path}{j}.in";
 
         StringBuilder fileContentBuilder = new StringBuilder();

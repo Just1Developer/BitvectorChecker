@@ -1,4 +1,4 @@
-﻿#define EXCLUSIVE_RANK_
+﻿#define EXCLUSIVE_RANK
 
 using System.Text;
 

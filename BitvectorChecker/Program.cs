@@ -27,6 +27,10 @@ for (int i = 0; i < _commands; ++i) {
 	ProcessCommand(commands[i + 1], bitvector);
 }*/
 
+Testcase _testcase0 = new Testcase("./input/input0.in");
+_testcase0.Run(true);
+return 0;
+
 List<Testcase> testcases = new List<Testcase>();
 for (int i = 0; i < 5; ++i)
 {
