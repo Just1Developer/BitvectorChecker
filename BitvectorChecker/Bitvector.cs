@@ -1,10 +1,13 @@
-﻿using System.Text;
+﻿#define EXCLUSIVE_RANK_
+
+using System.Text;
 
 namespace BitvectorChecker;
 
 public class Bitvector
 {
 	private List<int> vector;
+
 	
 	public Bitvector(string vect)
 	{
@@ -22,7 +25,11 @@ public class Bitvector
 	public int Rank(int num, int pos)
 	{
 		int counter = 0;
+		#if EXCLUSIVE_RANK
 		for (int i = 0; i < Math.Min(pos, vector.Count - 1); i++)
+		#else
+		for (int i = 0; i <= Math.Min(pos, vector.Count - 1); i++)
+		#endif
 		{
 			if (vector[i] == num) counter++;
 		}

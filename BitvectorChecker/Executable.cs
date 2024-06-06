@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text;
 
 namespace CSharp_Kubernetes.Overwatch;
 
@@ -113,7 +114,7 @@ public static class Executable
         return output;
     }
 
-    internal static List<string> PrimitiveRun(Process process, bool log)
+    internal static List<string> PrimitiveRun(Process process, StringBuilder? log)
     {
         process.Start();
 
@@ -123,7 +124,11 @@ public static class Executable
             string? line = process.StandardOutput.ReadLine();
             if (!string.IsNullOrEmpty(line))
             {
-                if (log || line.StartsWith("RESULT")) Console.WriteLine(line);
+                if (line.StartsWith("RESULT"))
+                {
+                    if (log == null) Console.WriteLine(line);
+                    else log.AppendLine(line);
+                }
                 outputLines.Add(line);
             }
         }

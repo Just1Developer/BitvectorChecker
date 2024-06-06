@@ -35,7 +35,7 @@ for (int i = 0; i < 5; ++i)
 
 foreach (Testcase testcase in testcases)
 {
-	await testcase.Run(false);
+	testcase.Run(false);
 }
 
 static void ProcessCommand(string cmd, Bitvector vect)

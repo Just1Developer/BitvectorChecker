@@ -40,12 +40,12 @@ public class Testcase
     /// </summary>
     /// <param name="log">If success cases should be logged or not.</param>
     /// <returns>If all queries matches the expected results.</returns>
-    public async Task<bool> Run(bool log)
+    public bool Run(bool log)
     {
         StringBuilder output = new StringBuilder();
+        output.AppendLine("\n---------------------- Begin  Analysis ----------------------");
         output.AppendLine($"Output for input file {filepath}");
         output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
-        output.AppendLine("       Query        Expected (C#)        Returned (C++)");
         
         List<string> results_cs = new List<string>();
         foreach (string query in Queries)
@@ -53,11 +53,17 @@ public class Testcase
             results_cs.Add(Bitvector.ProcessCommand(query));
         }
 
-        //var cpp_log = await Executable.RunProcessAsync(process: Executable.GetBitvectorProcess2(filepath), $"BV-{filepath}", true);
-        var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath), false);
+        var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath), output);
+        
+        // For some reason, the executable isnt updated properly.
+        if (cpp_log.Count > 0 && cpp_log[0] == "This is a test!")
+        {
+            cpp_log.RemoveRange(0, 2);
+        }
         
         int max = Math.Min(results_cs.Count, cpp_log.Count);
-        Console.WriteLine($"Output comparisons: {max} (cs: {results_cs.Count}, cpp: {cpp_log.Count})");
+        output.AppendLine($"Output comparisons: {max} (cs: {results_cs.Count}, cpp: {cpp_log.Count})");
+        output.AppendLine("       Query        Expected (C#)        Returned (C++)");
         
         bool success = true;
         for (int i = 0; i < max; i++)
@@ -73,7 +79,8 @@ public class Testcase
             output.AppendLine($"[FAIL] {Queries[i]}         {results_cs[i]}                   {cpp_log[i]}");
         }
 
-        output.AppendLine("--------------- End of Analysis ---------------");
+        if (!log && success) output.AppendLine("\n                [ No Failures to Show ]\n");
+        output.AppendLine("---------------------- End of Analysis ----------------------");
         Console.WriteLine(output.ToString());
         return success;
     }
