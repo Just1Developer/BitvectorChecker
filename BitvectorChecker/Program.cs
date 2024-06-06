@@ -2,7 +2,7 @@
 
 using BitvectorChecker;
 
-TestMultiple(20);
+TestMultiple(1000, 10, 150);
 
 // ------------- Methods -------------
 

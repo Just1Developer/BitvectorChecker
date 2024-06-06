@@ -1,0 +1,1310 @@
+Bitvectors: 100
+min length: 10
+max length: 150
+
+Last login: Tue May 28 11:20:04 on ttys001
+echo -n '\0033]0;/Users/windfury/RiderProjects/BitvectorChecker/BitvectorChecker/bin/Debug/net7.0/BitvectorChecker\007' ; clear ; exec '/Users/windfury/Library/Caches/JetBrains/Rider2023.3/tmp/terminalLauncher.sh'
+windfury@wlan-cl-kit-cs-172-17-10-226 ~ % echo -n '\0033]0;/Users/windfury/RiderProjects/BitvectorChecker/BitvectorChecker/bin/Debug/net7.0/BitvectorChecker\007' ; clear ; exec '/Users/windfury/Library/Caches/JetBrains/Rider2023.3/tmp/terminalLauncher.sh'
+
+Bitvector: 0100101011110100010000011
+Bitvector: 101101001001011000100011100110010011100010010000110101110100100100010110
+Bitvector: 001110000101111110100110110010101000010011011101110111011110
+Bitvector: 01100001001011
+Bitvector: 1100010100101110001011001010001001100000000110101101011011010000110010111111100
+Bitvector: 0110001100110011100110101110001110110011011010100000101001000100001000100101111100001011001000
+Bitvector: 01101100000110010000100100110101111011110110011111100001100010110111010110011000000
+Bitvector: 11100101111111
+Bitvector: 0101100110000001
+Bitvector: 01001101001011101000110
+Bitvector: 10100100011000001000101100000100000000100001101111111001011111110100011100010110100101101010100100010001110100
+Bitvector: 1100010100111100001000011
+Bitvector: 0110011111001101001111111000100000010101110110011000010101100000001111010110100110101101001001
+Bitvector: 00100001001011111100110100101100101000110001100111010111101101001100111001011011111001100
+Bitvector: 1011010010011101000011
+Bitvector: 0110111100001101111101100011010000111011100011010000000000001100111110100100100110001101001000011000111101101001001010101101
+Bitvector: 101000101010011100110000011100001011011001110101100110000101100010011110010011001111001001001100000001111100110100
+Bitvector: 110111111110010011100001000001111101101101001001111000101001100111001011100110101111100010111001100111000111000001000101001011
+Bitvector: 11100111111110011010101100100100111011110
+Bitvector: 111000101000101010000111000100010
+Bitvector: 00000010110110001010001100111101111011101000011111001011101011110001000101111110110100011110001101100001000111110110010110100000100000011010
+Bitvector: 0000110001011111111001001110110111001001011001101010111110010001110000000110010001000110000101010001000000111110111001100101111101100011010101101
+Bitvector: 00101010110010011100001000110100000110000010110011100101011
+Bitvector: 11111010001111011101000110000000
+Bitvector: 0111111111010010111011001010010111100000011011
+Bitvector: 1011001011110000000010111000100011101000001101011111110010010011111100101000000110100001111100111010111110011001110100111110101
+Bitvector: 00001101101011000111111001000010100010
+Bitvector: 01110000011101001011100111101100
+Bitvector: 0010001101001110010011100100101111011100011111111110100001100101110100101001101000001010001001111101110100111111110010100111011
+Bitvector: 0011111111011011010100001101010111010110010001100
+Bitvector: 01001100101111111010011101000010100010000000110110110111110011100
+Bitvector: 11010101001100110111100101110101110111000001100000001010000000000011101100010
+Bitvector: 10000110101010000111110001101111010001001100001010111101101110000101101111111001111
+Bitvector: 11101110100010100010000010100000011010010001000001100001011010111111101011011011010001101100110010101111111110111001011000011011
+Bitvector: 1101011000000000000110101011000000011111111010111000000011111001100110101110001011011111001101011001110000101100110
+Bitvector: 11000000111000010111010110010110100001111011001
+Bitvector: 11011000010011010011000
+Bitvector: 1101010001001000111010100101111101100010010101111011010101011000100
+Bitvector: 110001000111111001100100011011010011010011110100101100101110101101100011100111111110111100000011011010100101
+Bitvector: 1010110100101101010101111110010101010000110101
+Bitvector: 10001011011011111101100010001010100100011111101100101111101010110000101011011101000101110101100110011001111000001101101110101010100110011110
+Bitvector: 01000110101011111110001110011101000100011100000010001111111100101011000010010010011001110111001001100101111000111011011011110111100
+Bitvector: 11001110000100101001110110100100
+Bitvector: 010001111001100100001100000010100000000100111111010110011001111111110100000100000011011110000100000010
+Bitvector: 10011000111000
+Bitvector: 1011110111100101010000
+Bitvector: 001011000101011111001111000101101000101110101000101000111001110000100010101110000010010001011101101100001010010010001001111101110
+Bitvector: 10000101011001110101001101000010110101001111011100001010100111100101001111100001100011110100011110010001111000000100010101011001011111000
+Bitvector: 0101000010111000000000100000110101010100110001111100000
+Bitvector: 00010100010101111000011100000011101000110101000010110000110101110011111110011000111101000110100000011101000101000000000010111000110001111
+Bitvector: 10001100001010111110101001001010010111101010111
+Bitvector: 0101001011110111000010101011111000001101011001001001000
+Bitvector: 00111101101110101000111111001100000110000100100100000000101010101110100101110010100101001011111000000110010101001
+Bitvector: 001101110100001001101011011100010101101011010010010111100110011100000111101011101010101001001010000001001111111000
+Bitvector: 11001001111000010111100111000000101110011011101010000001011011011000011101010111000000010111011000001011101011111111011000010001011001100000110101
+Bitvector: 0100111100010010000110100110000001111
+Bitvector: 1101011100010001000110110001101010111111100111011011100111000011101101001001111100101000100111101011
+Bitvector: 1111101100011000110010100011000110001011001110010100
+Bitvector: 11110111000100111100101101
+Bitvector: 0110111100000111110001110111010011111010010101110000000110001000110010001000000010111110001110010000011001010011010101101010111
+Bitvector: 100101110000101
+Bitvector: 001010011001100110101001011110001011011001101100101001110110110000101010111011100100100110001100
+Bitvector: 001101001000000111100110100100010001010101001100010001110110000001110111111001100001010111101111100010011100101111
+Bitvector: 100110100000101111010010101001100001111010001011000110
+Bitvector: 110000110111011100111011000100011001011010100010010110000
+Bitvector: 01010000111100000001101010111010001011111010000110110011100010101
+Bitvector: 10001100011011101101011100010101001010100101
+Bitvector: 01001011111001100011010100111001110110111011001000110010100001110011111011000101101110111011001010011110
+Bitvector: 0000011001000001111100111001000110011010011100100101101010111110001101101010000001100001100101111001101000100111001
+Bitvector: 11100001111110011100110110110111010101100111001100111110100
+Bitvector: 000001111011010110000100101110
+Bitvector: 101110111111110111110001010000011010010001111011010110011111000100101010101110001
+Bitvector: 000101010101101110111110110011000101001111010011100100001101001111110000
+Bitvector: 1110101100100000001010110
+Bitvector: 01000000100110001001000101100000111001101111111011100111001110010001001110000110010110001
+Bitvector: 1110010000110011110100110001110100000000000001100101111010100110111101100110101100100001000110011001101110101000011010101111000100010
+Bitvector: 11011010010011000101011000110000111011100000100100101111001001111110101101111011011011101010101
+Bitvector: 10100010100000000011000011001100010001101
+Bitvector: 00100101111100010101000100011010
+Bitvector: 111010001010010000101000101010111000000111110000110011101010011001010100
+Bitvector: 1001011001001111011000100110001
+Bitvector: 1011101001011111101100010
+Bitvector: 10001001110101001100111011011001
+Bitvector: 01011101110000100011110111100011001110000010011101
+Bitvector: 00011110110000111101101010101001110101010001010001001000011110110101010110110010000101110000100110100110100111010111000011101
+Bitvector: 101000000010111000000111101100100000011110001100011100111110101100001100011100110101010111000110001011111000011101111001100
+Bitvector: 1000011110000010110101110100
+Bitvector: 1001011110011101101010101010011010101101010010110111111111100110110100100011101010100110001101111111001110010100000100
+Bitvector: 01111001110011000011011101100001011000111011101000011010101001000010000010010110110100011000100000011001010100010111
+Bitvector: 000110000001010101100101101101001111001000111010110110010000101100010110100100110110110111101000001111010110010101110000000101011
+Bitvector: 1001011101001101111100001101101010110000111
+Bitvector: 0110000001100111111111000101011101010000101100101001000010011000011101111011010100010101100001110111011011001000101010101000010011011111010001
+Bitvector: 011011000101010001011100100001111101100011010011010010011100111011100100100110010110
+Bitvector: 11001100111110000011010111110100
+Bitvector: 110000000011110101101011011001000100001111101111101001101110010111000100011010
+Bitvector: 100111101010110100010010111111001011111011110011101111111100101000001011000010000000001111110010110000000110101000110111011111000
+Bitvector: 10101011000101010010111000001001100101101001101101111100
+Bitvector: 010101100101101000111111111010000101010001001101011000010100111110010100110101101101000100101110111111011100000101101000110111110111101
+Bitvector: 101000101101011110000001010000111010110101
+Bitvector: 11010100011001000001110011011010011111101111001001110001010110010101100001111000010
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input26.in
+Bitvector: 0100101011110100010000011 (length: 25)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 100 (cs: 100, cpp: 101)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input27.in
+Bitvector: 101101001001011000100011100110010011100010010000110101110100100100010110 (length: 72)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 288 (cs: 288, cpp: 289)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input28.in
+Bitvector: 001110000101111110100110110010101000010011011101110111011110 (length: 60)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 240 (cs: 240, cpp: 241)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input29.in
+Bitvector: 01100001001011 (length: 14)
+RESULT name=benjamin_claus time=0 space=7680
+Output comparisons: 56 (cs: 56, cpp: 57)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input30.in
+Bitvector: 1100010100101110001011001010001001100000000110101101011011010000110010111111100 (length: 79)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 316 (cs: 316, cpp: 317)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input31.in
+Bitvector: 0110001100110011100110101110001110110011011010100000101001000100001000100101111100001011001000 (length: 94)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 376 (cs: 376, cpp: 377)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input32.in
+Bitvector: 01101100000110010000100100110101111011110110011111100001100010110111010110011000000 (length: 83)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 332 (cs: 332, cpp: 333)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input33.in
+Bitvector: 11100101111111 (length: 14)
+RESULT name=benjamin_claus time=0 space=7680
+Output comparisons: 56 (cs: 56, cpp: 57)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input34.in
+Bitvector: 0101100110000001 (length: 16)
+RESULT name=benjamin_claus time=0 space=7680
+Output comparisons: 64 (cs: 64, cpp: 65)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input35.in
+Bitvector: 01001101001011101000110 (length: 23)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 92 (cs: 92, cpp: 93)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input36.in
+Bitvector: 10100100011000001000101100000100000000100001101111111001011111110100011100010110100101101010100100010001110100 (length: 110)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 440 (cs: 440, cpp: 441)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input37.in
+Bitvector: 1100010100111100001000011 (length: 25)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 100 (cs: 100, cpp: 101)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input38.in
+Bitvector: 0110011111001101001111111000100000010101110110011000010101100000001111010110100110101101001001 (length: 94)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 376 (cs: 376, cpp: 377)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input39.in
+Bitvector: 00100001001011111100110100101100101000110001100111010111101101001100111001011011111001100 (length: 89)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 356 (cs: 356, cpp: 357)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input40.in
+Bitvector: 1011010010011101000011 (length: 22)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 88 (cs: 88, cpp: 89)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input41.in
+Bitvector: 0110111100001101111101100011010000111011100011010000000000001100111110100100100110001101001000011000111101101001001010101101 (length: 124)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 496 (cs: 496, cpp: 497)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input42.in
+Bitvector: 101000101010011100110000011100001011011001110101100110000101100010011110010011001111001001001100000001111100110100 (length: 114)
+RESULT name=benjamin_claus time=7 space=10368
+Output comparisons: 456 (cs: 456, cpp: 457)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input43.in
+Bitvector: 110111111110010011100001000001111101101101001001111000101001100111001011100110101111100010111001100111000111000001000101001011 (length: 126)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 504 (cs: 504, cpp: 505)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input44.in
+Bitvector: 11100111111110011010101100100100111011110 (length: 41)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 164 (cs: 164, cpp: 165)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input45.in
+Bitvector: 111000101000101010000111000100010 (length: 33)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 132 (cs: 132, cpp: 133)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input46.in
+Bitvector: 00000010110110001010001100111101111011101000011111001011101011110001000101111110110100011110001101100001000111110110010110100000100000011010 (length: 140)
+RESULT name=benjamin_claus time=9 space=17408
+Output comparisons: 560 (cs: 560, cpp: 561)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input47.in
+Bitvector: 0000110001011111111001001110110111001001011001101010111110010001110000000110010001000110000101010001000000111110111001100101111101100011010101101 (length: 145)
+RESULT name=benjamin_claus time=9 space=17408
+Output comparisons: 580 (cs: 580, cpp: 581)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input48.in
+Bitvector: 00101010110010011100001000110100000110000010110011100101011 (length: 59)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 236 (cs: 236, cpp: 237)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input49.in
+Bitvector: 11111010001111011101000110000000 (length: 32)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input50.in
+Bitvector: 0111111111010010111011001010010111100000011011 (length: 46)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 184 (cs: 184, cpp: 185)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input51.in
+Bitvector: 1011001011110000000010111000100011101000001101011111110010010011111100101000000110100001111100111010111110011001110100111110101 (length: 127)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 508 (cs: 508, cpp: 509)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input52.in
+Bitvector: 00001101101011000111111001000010100010 (length: 38)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 152 (cs: 152, cpp: 153)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input53.in
+Bitvector: 01110000011101001011100111101100 (length: 32)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input54.in
+Bitvector: 0010001101001110010011100100101111011100011111111110100001100101110100101001101000001010001001111101110100111111110010100111011 (length: 127)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 508 (cs: 508, cpp: 509)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input55.in
+Bitvector: 0011111111011011010100001101010111010110010001100 (length: 49)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 196 (cs: 196, cpp: 197)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input56.in
+Bitvector: 01001100101111111010011101000010100010000000110110110111110011100 (length: 65)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 260 (cs: 260, cpp: 261)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input57.in
+Bitvector: 11010101001100110111100101110101110111000001100000001010000000000011101100010 (length: 77)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 308 (cs: 308, cpp: 309)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input58.in
+Bitvector: 10000110101010000111110001101111010001001100001010111101101110000101101111111001111 (length: 83)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 332 (cs: 332, cpp: 333)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input59.in
+Bitvector: 11101110100010100010000010100000011010010001000001100001011010111111101011011011010001101100110010101111111110111001011000011011 (length: 128)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 512 (cs: 512, cpp: 513)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input60.in
+Bitvector: 1101011000000000000110101011000000011111111010111000000011111001100110101110001011011111001101011001110000101100110 (length: 115)
+RESULT name=benjamin_claus time=7 space=10368
+Output comparisons: 460 (cs: 460, cpp: 461)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input61.in
+Bitvector: 11000000111000010111010110010110100001111011001 (length: 47)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 188 (cs: 188, cpp: 189)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input62.in
+Bitvector: 11011000010011010011000 (length: 23)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 92 (cs: 92, cpp: 93)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input63.in
+Bitvector: 1101010001001000111010100101111101100010010101111011010101011000100 (length: 67)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 268 (cs: 268, cpp: 269)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input64.in
+Bitvector: 110001000111111001100100011011010011010011110100101100101110101101100011100111111110111100000011011010100101 (length: 108)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 432 (cs: 432, cpp: 433)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input65.in
+Bitvector: 1010110100101101010101111110010101010000110101 (length: 46)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 184 (cs: 184, cpp: 185)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input66.in
+Bitvector: 10001011011011111101100010001010100100011111101100101111101010110000101011011101000101110101100110011001111000001101101110101010100110011110 (length: 140)
+RESULT name=benjamin_claus time=7 space=15296
+Output comparisons: 560 (cs: 560, cpp: 561)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input67.in
+Bitvector: 01000110101011111110001110011101000100011100000010001111111100101011000010010010011001110111001001100101111000111011011011110111100 (length: 131)
+RESULT name=benjamin_claus time=8 space=15296
+Output comparisons: 524 (cs: 524, cpp: 525)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input68.in
+Bitvector: 11001110000100101001110110100100 (length: 32)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input69.in
+Bitvector: 010001111001100100001100000010100000000100111111010110011001111111110100000100000011011110000100000010 (length: 102)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 408 (cs: 408, cpp: 409)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input70.in
+Bitvector: 10011000111000 (length: 14)
+RESULT name=benjamin_claus time=0 space=7680
+Output comparisons: 56 (cs: 56, cpp: 57)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input71.in
+Bitvector: 1011110111100101010000 (length: 22)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 88 (cs: 88, cpp: 89)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input72.in
+Bitvector: 001011000101011111001111000101101000101110101000101000111001110000100010101110000010010001011101101100001010010010001001111101110 (length: 129)
+RESULT name=benjamin_claus time=8 space=15296
+Output comparisons: 516 (cs: 516, cpp: 517)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input73.in
+Bitvector: 10000101011001110101001101000010110101001111011100001010100111100101001111100001100011110100011110010001111000000100010101011001011111000 (length: 137)
+RESULT name=benjamin_claus time=9 space=17408
+Output comparisons: 548 (cs: 548, cpp: 549)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input74.in
+Bitvector: 0101000010111000000000100000110101010100110001111100000 (length: 55)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 220 (cs: 220, cpp: 221)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input75.in
+Bitvector: 00010100010101111000011100000011101000110101000010110000110101110011111110011000111101000110100000011101000101000000000010111000110001111 (length: 137)
+RESULT name=benjamin_claus time=7 space=15296
+Output comparisons: 548 (cs: 548, cpp: 549)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input76.in
+Bitvector: 10001100001010111110101001001010010111101010111 (length: 47)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 188 (cs: 188, cpp: 189)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input77.in
+Bitvector: 0101001011110111000010101011111000001101011001001001000 (length: 55)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 220 (cs: 220, cpp: 221)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input78.in
+Bitvector: 00111101101110101000111111001100000110000100100100000000101010101110100101110010100101001011111000000110010101001 (length: 113)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 452 (cs: 452, cpp: 453)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input79.in
+Bitvector: 001101110100001001101011011100010101101011010010010111100110011100000111101011101010101001001010000001001111111000 (length: 114)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 456 (cs: 456, cpp: 457)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input80.in
+Bitvector: 11001001111000010111100111000000101110011011101010000001011011011000011101010111000000010111011000001011101011111111011000010001011001100000110101 (length: 146)
+RESULT name=benjamin_claus time=9 space=17408
+Output comparisons: 584 (cs: 584, cpp: 585)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input81.in
+Bitvector: 0100111100010010000110100110000001111 (length: 37)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 148 (cs: 148, cpp: 149)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input82.in
+Bitvector: 1101011100010001000110110001101010111111100111011011100111000011101101001001111100101000100111101011 (length: 100)
+RESULT name=benjamin_claus time=13 space=10368
+Output comparisons: 400 (cs: 400, cpp: 401)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input83.in
+Bitvector: 1111101100011000110010100011000110001011001110010100 (length: 52)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 208 (cs: 208, cpp: 209)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input84.in
+Bitvector: 11110111000100111100101101 (length: 26)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 104 (cs: 104, cpp: 105)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input85.in
+Bitvector: 0110111100000111110001110111010011111010010101110000000110001000110010001000000010111110001110010000011001010011010101101010111 (length: 127)
+RESULT name=benjamin_claus time=8 space=12480
+Output comparisons: 508 (cs: 508, cpp: 509)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input86.in
+Bitvector: 100101110000101 (length: 15)
+RESULT name=benjamin_claus time=0 space=7680
+Output comparisons: 60 (cs: 60, cpp: 61)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input87.in
+Bitvector: 001010011001100110101001011110001011011001101100101001110110110000101010111011100100100110001100 (length: 96)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 384 (cs: 384, cpp: 385)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input88.in
+Bitvector: 001101001000000111100110100100010001010101001100010001110110000001110111111001100001010111101111100010011100101111 (length: 114)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 456 (cs: 456, cpp: 457)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input89.in
+Bitvector: 100110100000101111010010101001100001111010001011000110 (length: 54)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 216 (cs: 216, cpp: 217)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input90.in
+Bitvector: 110000110111011100111011000100011001011010100010010110000 (length: 57)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 228 (cs: 228, cpp: 229)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input91.in
+Bitvector: 01010000111100000001101010111010001011111010000110110011100010101 (length: 65)
+RESULT name=benjamin_claus time=3 space=10368
+Output comparisons: 260 (cs: 260, cpp: 261)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input92.in
+Bitvector: 10001100011011101101011100010101001010100101 (length: 44)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 176 (cs: 176, cpp: 177)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input93.in
+Bitvector: 01001011111001100011010100111001110110111011001000110010100001110011111011000101101110111011001010011110 (length: 104)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 416 (cs: 416, cpp: 417)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input94.in
+Bitvector: 0000011001000001111100111001000110011010011100100101101010111110001101101010000001100001100101111001101000100111001 (length: 115)
+RESULT name=benjamin_claus time=7 space=10368
+Output comparisons: 460 (cs: 460, cpp: 461)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input95.in
+Bitvector: 11100001111110011100110110110111010101100111001100111110100 (length: 59)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 236 (cs: 236, cpp: 237)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input96.in
+Bitvector: 000001111011010110000100101110 (length: 30)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 120 (cs: 120, cpp: 121)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input97.in
+Bitvector: 101110111111110111110001010000011010010001111011010110011111000100101010101110001 (length: 81)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 324 (cs: 324, cpp: 325)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input98.in
+Bitvector: 000101010101101110111110110011000101001111010011100100001101001111110000 (length: 72)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 288 (cs: 288, cpp: 289)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input99.in
+Bitvector: 1110101100100000001010110 (length: 25)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 100 (cs: 100, cpp: 101)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input100.in
+Bitvector: 01000000100110001001000101100000111001101111111011100111001110010001001110000110010110001 (length: 89)
+RESULT name=benjamin_claus time=6 space=10368
+Output comparisons: 356 (cs: 356, cpp: 357)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input101.in
+Bitvector: 1110010000110011110100110001110100000000000001100101111010100110111101100110101100100001000110011001101110101000011010101111000100010 (length: 133)
+RESULT name=benjamin_claus time=12 space=15296
+Output comparisons: 532 (cs: 532, cpp: 533)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input102.in
+Bitvector: 11011010010011000101011000110000111011100000100100101111001001111110101101111011011011101010101 (length: 95)
+RESULT name=benjamin_claus time=9 space=10368
+Output comparisons: 380 (cs: 380, cpp: 381)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input103.in
+Bitvector: 10100010100000000011000011001100010001101 (length: 41)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 164 (cs: 164, cpp: 165)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input104.in
+Bitvector: 00100101111100010101000100011010 (length: 32)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input105.in
+Bitvector: 111010001010010000101000101010111000000111110000110011101010011001010100 (length: 72)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 288 (cs: 288, cpp: 289)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input106.in
+Bitvector: 1001011001001111011000100110001 (length: 31)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 124 (cs: 124, cpp: 125)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input107.in
+Bitvector: 1011101001011111101100010 (length: 25)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 100 (cs: 100, cpp: 101)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input108.in
+Bitvector: 10001001110101001100111011011001 (length: 32)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input109.in
+Bitvector: 01011101110000100011110111100011001110000010011101 (length: 50)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 200 (cs: 200, cpp: 201)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input110.in
+Bitvector: 00011110110000111101101010101001110101010001010001001000011110110101010110110010000101110000100110100110100111010111000011101 (length: 125)
+RESULT name=benjamin_claus time=8 space=10368
+Output comparisons: 500 (cs: 500, cpp: 501)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input111.in
+Bitvector: 101000000010111000000111101100100000011110001100011100111110101100001100011100110101010111000110001011111000011101111001100 (length: 123)
+RESULT name=benjamin_claus time=8 space=10368
+Output comparisons: 492 (cs: 492, cpp: 493)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input112.in
+Bitvector: 1000011110000010110101110100 (length: 28)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 112 (cs: 112, cpp: 113)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input113.in
+Bitvector: 1001011110011101101010101010011010101101010010110111111111100110110100100011101010100110001101111111001110010100000100 (length: 118)
+RESULT name=benjamin_claus time=7 space=12480
+Output comparisons: 472 (cs: 472, cpp: 473)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input114.in
+Bitvector: 01111001110011000011011101100001011000111011101000011010101001000010000010010110110100011000100000011001010100010111 (length: 116)
+RESULT name=benjamin_claus time=7 space=12480
+Output comparisons: 464 (cs: 464, cpp: 465)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input115.in
+Bitvector: 000110000001010101100101101101001111001000111010110110010000101100010110100100110110110111101000001111010110010101110000000101011 (length: 129)
+RESULT name=benjamin_claus time=7 space=15296
+Output comparisons: 516 (cs: 516, cpp: 517)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input116.in
+Bitvector: 1001011101001101111100001101101010110000111 (length: 43)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 172 (cs: 172, cpp: 173)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input117.in
+Bitvector: 0110000001100111111111000101011101010000101100101001000010011000011101111011010100010101100001110111011011001000101010101000010011011111010001 (length: 142)
+RESULT name=benjamin_claus time=8 space=17408
+Output comparisons: 568 (cs: 568, cpp: 569)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input118.in
+Bitvector: 011011000101010001011100100001111101100011010011010010011100111011100100100110010110 (length: 84)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 336 (cs: 336, cpp: 337)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input119.in
+Bitvector: 11001100111110000011010111110100 (length: 32)
+RESULT name=benjamin_claus time=1 space=7680
+Output comparisons: 128 (cs: 128, cpp: 129)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input120.in
+Bitvector: 110000000011110101101011011001000100001111101111101001101110010111000100011010 (length: 78)
+RESULT name=benjamin_claus time=4 space=10368
+Output comparisons: 312 (cs: 312, cpp: 313)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input121.in
+Bitvector: 100111101010110100010010111111001011111011110011101111111100101000001011000010000000001111110010110000000110101000110111011111000 (length: 129)
+RESULT name=benjamin_claus time=7 space=15296
+Output comparisons: 516 (cs: 516, cpp: 517)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input122.in
+Bitvector: 10101011000101010010111000001001100101101001101101111100 (length: 56)
+RESULT name=benjamin_claus time=3 space=7680
+Output comparisons: 224 (cs: 224, cpp: 225)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input123.in
+Bitvector: 010101100101101000111111111010000101010001001101011000010100111110010100110101101101000100101110111111011100000101101000110111110111101 (length: 135)
+RESULT name=benjamin_claus time=7 space=15296
+Output comparisons: 540 (cs: 540, cpp: 541)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input124.in
+Bitvector: 101000101101011110000001010000111010110101 (length: 42)
+RESULT name=benjamin_claus time=2 space=7680
+Output comparisons: 168 (cs: 168, cpp: 169)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+---------------------- Begin  Analysis ----------------------
+Output for input file ./input/input125.in
+Bitvector: 11010100011001000001110011011010011111101111001001110001010110010101100001111000010 (length: 83)
+RESULT name=benjamin_claus time=5 space=10368
+Output comparisons: 332 (cs: 332, cpp: 333)
+   Query            Expected (C#)        Returned (C++)
+
+                [ No Failures to Show ]
+
+---------------------- End of Analysis ----------------------
+
+
+[Process completed]
