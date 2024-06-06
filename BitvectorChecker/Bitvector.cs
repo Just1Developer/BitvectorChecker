@@ -1,4 +1,6 @@
-﻿namespace BitvectorChecker;
+﻿using System.Text;
+
+namespace BitvectorChecker;
 
 public class Bitvector
 {
@@ -64,5 +66,12 @@ public class Bitvector
 			default:
 				return "";
 		}
+	}
+
+	public override string ToString()
+	{
+		StringBuilder builder = new StringBuilder();
+		foreach (int i in vector) builder.Append(i);
+		return builder.ToString();
 	}
 }

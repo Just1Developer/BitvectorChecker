@@ -50,8 +50,20 @@ public static class Executable
     internal static Process GetBitvectorProcess(string inputFileName)
     {
         Process process = new Process();
-        process.StartInfo = GetStartInfo("./", "C++", $"-c \"./{inputFileName}\" {inputFileName}");
+        process.StartInfo = GetStartInfo(".", "C++", $"-c \"./{program_name}\" {inputFileName}");
         process.EnableRaisingEvents = true;
+        return process;
+    }
+    
+    internal static Process GetBitvectorProcess2(string inputFileName)
+    {
+        string executablePath = $"./{program_name}";  // Path to the executable in the application directory
+        string arguments = inputFileName;
+
+        Process process = new Process();
+        process.StartInfo = GetStartInfo(Environment.CurrentDirectory, executablePath, arguments);
+        process.EnableRaisingEvents = true;
+
         return process;
     }
 
@@ -99,6 +111,25 @@ public static class Executable
         }
 
         return output;
+    }
+
+    internal static List<string> PrimitiveRun(Process process, bool log)
+    {
+        process.Start();
+
+        List<string> outputLines = new List<string>();
+        while (!process.StandardOutput.EndOfStream)
+        {
+            string? line = process.StandardOutput.ReadLine();
+            if (!string.IsNullOrEmpty(line))
+            {
+                if (log || line.StartsWith("RESULT")) Console.WriteLine(line);
+                outputLines.Add(line);
+            }
+        }
+
+        process.WaitForExit();
+        return outputLines;
     }
 
     internal static ProcessStartInfo GetStartInfo(string workingDirectory, string processName, string arguments)

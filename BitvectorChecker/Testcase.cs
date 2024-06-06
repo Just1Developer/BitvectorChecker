@@ -44,7 +44,8 @@ public class Testcase
     {
         StringBuilder output = new StringBuilder();
         output.AppendLine($"Output for input file {filepath}");
-        output.AppendLine("                          Expected (C#)        Returned (C++)");
+        output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
+        output.AppendLine("       Query        Expected (C#)        Returned (C++)");
         
         List<string> results_cs = new List<string>();
         foreach (string query in Queries)
@@ -52,8 +53,9 @@ public class Testcase
             results_cs.Add(Bitvector.ProcessCommand(query));
         }
 
-        var cpp_log = await Executable.RunProcessAsync(process: Executable.GetBitvectorProcess(filepath), $"BV-{filepath}", true);
-
+        //var cpp_log = await Executable.RunProcessAsync(process: Executable.GetBitvectorProcess2(filepath), $"BV-{filepath}", true);
+        var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath), false);
+        
         int max = Math.Min(results_cs.Count, cpp_log.Count);
         Console.WriteLine($"Output comparisons: {max} (cs: {results_cs.Count}, cpp: {cpp_log.Count})");
         
@@ -63,12 +65,12 @@ public class Testcase
             if (results_cs[i].Trim() == cpp_log[i].Trim())
             {
                 if (!log) continue;
-                output.AppendLine($"Query: {Queries[i]}               {results_cs[i]}                   {cpp_log[i]}");
+                output.AppendLine($"{Queries[i]}               {results_cs[i]}                   {cpp_log[i]}");
                 continue;
             }
 
             success = false;
-            output.AppendLine($"[FAIL] Query: {Queries[i]}         {results_cs[i]}                   {cpp_log[i]}");
+            output.AppendLine($"[FAIL] {Queries[i]}         {results_cs[i]}                   {cpp_log[i]}");
         }
 
         output.AppendLine("--------------- End of Analysis ---------------");
