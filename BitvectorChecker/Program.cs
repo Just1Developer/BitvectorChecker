@@ -14,9 +14,9 @@ static bool TestSingleFile(int inputFileName, bool logAll)
 static void TestMultiple(int amount, int min = 15, int max = 60)
 {
 	List<Testcase> testcases = new List<Testcase>();
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < amount; ++i)
 	{
-		testcases.Add(Tester.NewTest(10, 30));
+		testcases.Add(Tester.NewTest(min, max));
 	}
 
 	foreach (Testcase testcase in testcases)
