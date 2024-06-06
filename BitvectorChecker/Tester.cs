@@ -4,22 +4,9 @@ namespace BitvectorChecker;
 
 public class Tester
 {
-    private static Random r = new Random();
-
-    private static string GetWritableDirectory()
-    {
-        string homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        string inputPath = Path.Combine(homePath, "bitvectors/testinput");
-
-        if (!Directory.Exists(inputPath))
-        {
-            Directory.CreateDirectory(inputPath);
-        }
-
-        return inputPath;
-    }
+    private static Random Random = new ();
     
-    public static Testcase NewTest(int minLength, int maxLength) => NewTest(r.Next(minLength, maxLength)); 
+    public static Testcase NewTest(int minLength, int maxLength) => NewTest(Random.Next(minLength, maxLength)); 
     public static Testcase NewTest(int length)
     {
         StringBuilder vectorbuilder = new StringBuilder();
@@ -29,7 +16,7 @@ public class Tester
         int ones = 0, zeros = 0;
         for (int i = 0; i < length; ++i)
         {
-            if (r.NextDouble() > 0.5)
+            if (Random.NextDouble() > 0.5)
             {
                 vectorbuilder.Append("1");
                 ones++;
@@ -59,17 +46,7 @@ public class Tester
 
         Console.WriteLine("Bitvector: " + vectorbuilder);
         
-        /* Old: immediately run tests
-        Bitvector bitvector = new Bitvector(vectorbuilder.ToString());
-        foreach (string cmd in commands)
-        {
-            Console.WriteLine($"{cmd}: {bitvector.ProcessCommand(cmd)}");
-        }
-        Console.WriteLine("Finished. Used Commands:");
-        Console.WriteLine(commandBuilder);
-        */
-        
-        // New: Generate Testcase and Input file
+        // Generate Testcase and Input file
         int j = 0;
         string path = "./input/input";
         if (!Directory.Exists("./input/")) Directory.CreateDirectory("./input/");
