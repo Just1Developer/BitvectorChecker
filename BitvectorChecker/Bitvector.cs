@@ -45,4 +45,24 @@ public class Bitvector
 			vector.Add(c - '0');
 		}
 	}
+	
+	internal string ProcessCommand(string cmd)
+	{
+		string[] str = cmd.Split(" ");
+	
+		char command = str[0][0];
+		int arg1 = int.Parse(str[1]);
+		int arg2 = str.Length > 2 ? int.Parse(str[2]) : 0;
+
+		switch (command) {
+			case 'a':
+				return Access(arg1).ToString();
+			case 'r':
+				return Rank(arg1, arg2).ToString();
+			case 's':
+				return Select(arg1, arg2).ToString();
+			default:
+				return "";
+		}
+	}
 }

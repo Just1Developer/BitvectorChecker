@@ -4,10 +4,16 @@ using BitvectorChecker;
 
 Console.WriteLine("Hello, World!");
 
+/*
 string[] commands = {
 	"001110110101010111111111",
 	"access 4",         // Correct output
 	"rank 0 10",        // Todo incorrect output: 4
+	"rank 0 11",        // 
+	"rank 0 12",        // 
+	"rank 1 10",        // 
+	"rank 1 11",        // 
+	"rank 1 12",        // 
 	"select 1 14",      // Correct output
 	"rank 1 10",        // Correct output
 	"select 0 3",       // Correct output
@@ -19,9 +25,20 @@ Bitvector bitvector = new Bitvector(commands[0]);
 for (int i = 0; i < _commands; ++i) {
 	// Todo just next command
 	ProcessCommand(commands[i + 1], bitvector);
+}*/
+
+List<Testcase> testcases = new List<Testcase>();
+for (int i = 0; i < 5; ++i)
+{
+	testcases.Add(Tester.NewTest(10, 30));
 }
 
-void ProcessCommand(string cmd, Bitvector vect)
+foreach (Testcase testcase in testcases)
+{
+	await testcase.Run(true);
+}
+
+static void ProcessCommand(string cmd, Bitvector vect)
 {
 	string[] str = cmd.Split(" ");
 	
