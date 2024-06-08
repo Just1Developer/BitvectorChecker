@@ -1,9 +1,13 @@
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BitvectorChecker;
 
 public class Testcase
 {
+    public int Time { get; private set; }
+    public int Space { get; private set; }
+    
     private readonly string filepath;
     internal readonly Bitvector Bitvector;
     internal readonly List<string> Queries;
@@ -80,6 +84,24 @@ public class Testcase
         if (!log && success) output.AppendLine("\n                [ No Failures to Show ]\n");
         output.AppendLine("---------------------- End of Analysis ----------------------");
         Console.WriteLine(output.ToString());
+
+        string resultEntry = cpp_log.Count == 0 ? "-" : cpp_log[cpp_log.Count - 1];
+        if (resultEntry.StartsWith("RESULT"))
+        {
+            var regex = new Regex(@"time=(\d+) space=(\d+)");
+            var match = regex.Match(resultEntry);
+            if (match.Success)
+            {
+                Time = int.Parse(match.Groups[1].Value);
+                Space = int.Parse(match.Groups[1].Value);
+            }
+            else
+            {
+                Time = 1;
+                Space = 1;
+            }
+        }
+        
         return success;
     }
 

@@ -5,7 +5,7 @@ namespace BitvectorChecker;
 
 public static class Executable
 {
-    public const string program_name = "bitvector";
+    public const string program_name = "bitvector2";
     
     internal static Process GetBitvectorProcess2(string inputFileName)
     {
