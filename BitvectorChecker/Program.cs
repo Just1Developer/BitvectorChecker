@@ -21,7 +21,7 @@ static void TestMultiple(int amount, int min = 15, int max = 60, string engine =
 
 	foreach (Testcase testcase in testcases)
 	{
-		testcase.Run(false);
+		testcase.Run(false, engine);
 	}
 }
 

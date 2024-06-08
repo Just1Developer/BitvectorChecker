@@ -7,9 +7,14 @@ public static class Executable
 {
     public const string program_name = "bitvector2";
     
-    internal static Process GetBitvectorProcess2(string inputFileName)
+    internal static Process GetBitvectorProcess2(string inputFileName, string engineName = program_name)
     {
-        string executablePath = $"./{program_name}";  // Path to the executable in the application directory
+        if (!File.Exists(engineName))
+        {
+            Console.Error.WriteLine($"Engine {engineName} does not exist, switching to default {program_name}");
+            engineName = program_name;
+        }
+        string executablePath = $"./{engineName}";  // Path to the executable in the application directory
         string arguments = inputFileName;
 
         Process process = new Process();
