@@ -5,9 +5,9 @@ using BitvectorChecker;
 
 //TestMultiple(200, 10, 60);
 var allBenchmarks = BenchmarkMultipleEngines(
+	200,
 	10,
-	10,
-	new[] { 20, 30 },
+	new[] { 32, 64, 96, 128, 150 },
 	new List<string>() { "bitvector", "bitvector2" }
 	);
 Console.WriteLine("\n\n\n--------------------------------------- Benchmark Results ---------------------------------------\n\n\n");
@@ -133,7 +133,7 @@ struct BenchmarkResult
 	
 	public readonly int MinTime, MaxTime, MinSpace, MaxSpace;
 	public readonly int TotalQueries, TotalTests;
-	public readonly double AverageTime, AverageSpacePerBit, AverageBvLength;
+	public readonly double AverageTime, AverageSpace, AverageSpacePerBit, AverageBvLength;
 	List<NumberSpan> FailedSpans;
 	public readonly string Engine;
 
@@ -148,6 +148,7 @@ struct BenchmarkResult
 		this.MinSpace = minSpace;
 		this.MaxSpace = maxSpace;
 		this.AverageSpacePerBit = avgSpace;
+		this.AverageSpace = 0;
 		this.AverageBvLength = 0;
 		this.Engine = engine;
 		this.TotalTests = 0;
@@ -172,6 +173,7 @@ struct BenchmarkResult
 			MinSpace = 0;
 			MaxSpace = 0;
 			AverageSpacePerBit = 0;
+			AverageSpace = 0;
 			AverageBvLength = 0;
 			TotalTests = 0;
 			TotalQueries = 0;
@@ -182,7 +184,7 @@ struct BenchmarkResult
 		int maxTime = int.MinValue;
 		int minSpace = int.MaxValue;
 		int maxSpace = int.MinValue;
-		double sumTime = 0, sumSpacePerBit = 0, sumBvLength = 0;
+		double sumTime = 0, sumSpace = 0, sumSpacePerBit = 0, sumBvLength = 0;
 
 		int i = 0;
 		foreach (Testcase testcase in testcases)
@@ -195,6 +197,7 @@ struct BenchmarkResult
 			else if (testcase.Space > maxSpace) maxSpace = testcase.Space;
 			
 			sumTime += testcase.Time;
+			sumSpace += testcase.Space;
 			sumSpacePerBit += (double) testcase.Space / testcase.Bitvector.Length;
 			sumBvLength += testcase.Bitvector.Length;
 			TotalQueries += testcase.QueryCount;
@@ -218,6 +221,7 @@ struct BenchmarkResult
 		this.AverageTime = sumTime / TotalTests;
 		this.MinSpace = minSpace;
 		this.MaxSpace = maxSpace;
+		this.AverageSpace = sumSpace / TotalTests;
 		this.AverageSpacePerBit = sumSpacePerBit / TotalTests;
 		this.AverageBvLength = sumBvLength / TotalTests;
 	}
@@ -238,8 +242,9 @@ struct BenchmarkResult
 			.AppendLine($"  Average Time: {RoundTo(AverageTime, 2*DecimalPlaces)}ms")
 			.AppendLine($"  Shortest Time: {MinTime}ms")
 			.AppendLine($"  Longest Time: {MaxTime}ms")
-			.AppendLine("---------- Space Benchmarks (per bit) ----------")
-			.AppendLine($"  Average Space: {RoundTo(AverageSpacePerBit, DecimalPlaces)} bit")
+			.AppendLine("---------- Space Benchmarks ----------")
+			.AppendLine($"  Average Space: {RoundTo(AverageSpace, DecimalPlaces)} bit (Total)")
+			.AppendLine($"  Average Space: {RoundTo(AverageSpacePerBit, DecimalPlaces)} bit per BV Bit")
 			.AppendLine($"  Minimal Space: {MinSpace} bit")
 			.AppendLine($"  Maximal Space: {MaxSpace} bit")
 			.AppendLine("------------------- End of Benchmark Result -------------------");
@@ -268,7 +273,7 @@ struct BenchmarkResult
 
 	class NumberSpan
 	{
-		public int Start { get; private set; }
+		public int Start { get; }
 		public int End { get; private set; }
 
 		public NumberSpan(int number)

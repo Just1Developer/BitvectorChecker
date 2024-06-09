@@ -109,7 +109,7 @@ public class Testcase
             if (match.Success)
             {
                 Time = int.Parse(match.Groups[1].Value);
-                Space = int.Parse(match.Groups[1].Value);
+                Space = int.Parse(match.Groups[2].Value);
             }
             else
             {
