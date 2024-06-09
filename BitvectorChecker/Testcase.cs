@@ -68,6 +68,7 @@ public class Testcase
         StringBuilder output = new StringBuilder();
         output.AppendLine($"\n---------------------- {(testNumber >= 0 ? $"Test {testNumber} | " : "")}Begin  Analysis ----------------------");
         output.AppendLine($"Output for input file {filepath}");
+        output.AppendLine($"Engine: {engine}");
         output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
 
         var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath, engine), output);

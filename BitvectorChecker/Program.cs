@@ -3,6 +3,9 @@
 using System.Text;
 using BitvectorChecker;
 
+TestSingleFile("input1400", false, "bitvector2");
+
+/*
 //TestMultiple(200, 10, 60);
 var allBenchmarks = BenchmarkMultipleEngines(
 	200,
@@ -16,12 +19,16 @@ Console.WriteLine("------------------------------------ End of Benchmark Results
 Console.WriteLine("------------------------------------ Engine Benchmark Results ------------------------------------");
 foreach (var benchmarks in allBenchmarks) Console.WriteLine(benchmarks.Count > 0 ? benchmarks[0].ToString(true) : "\n[No Results Available]\n");
 Console.WriteLine("--------------------------------- End of Engine Benchmark Results ---------------------------------");
+*/
+
+
+
 
 // ------------- Methods -------------
 
-static bool TestSingleFile(int inputFileName, bool logAll)
+static bool TestSingleFile(string inputFileName, bool logAll, string engine)
 {
-	return new Testcase($"./input/{inputFileName}.in").Run(logAll);
+	return new Testcase($"./input/{inputFileName}.in").Run(logAll, engine);
 }
 
 static void TestMultiple(int amount, int min = 15, int max = 60, string engine = "bitvector")
