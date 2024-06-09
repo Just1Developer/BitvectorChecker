@@ -93,7 +93,9 @@ public class Testcase
 
             success = false;
             output.AppendLine(Format($"[FAIL] {Queries[i]}", ResultComparator[i], cpp_log[i]));
+            FailedTests++;
         }
+        TotalTests = max;
 
         if (!log && success) output.AppendLine("\n                [ No Failures to Show ]\n");
         output.AppendLine("---------------------- End of Analysis ----------------------");

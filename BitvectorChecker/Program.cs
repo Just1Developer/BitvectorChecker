@@ -4,15 +4,18 @@ using System.Text;
 using BitvectorChecker;
 
 //TestMultiple(200, 10, 60);
-var benchmarks = BenchmarkMultipleEngines(
+var allBenchmarks = BenchmarkMultipleEngines(
 	10,
 	10,
 	new[] { 20, 30 },
 	new List<string>() { "bitvector", "bitvector2" }
 	);
-Console.WriteLine("\n\n\n----------------------------- Benchmark Results -----------------------------\n\n\n");
-foreach (var benchmark in benchmarks) Console.WriteLine(benchmark.ToString());
-Console.WriteLine("\n\n\n-------------------------- End of Benchmark Results --------------------------");
+Console.WriteLine("\n\n\n--------------------------------------- Benchmark Results ---------------------------------------\n\n\n");
+foreach (var benchmarks in allBenchmarks) Console.WriteLine(BenchmarkResult.ToString(benchmarks));
+Console.WriteLine("------------------------------------ End of Benchmark Results ------------------------------------\n\n");
+Console.WriteLine("------------------------------------ Engine Benchmark Results ------------------------------------");
+foreach (var benchmarks in allBenchmarks) Console.WriteLine(benchmarks.Count > 0 ? benchmarks[0].ToString(true) : "\n[No Results Available]\n");
+Console.WriteLine("--------------------------------- End of Engine Benchmark Results ---------------------------------");
 
 // ------------- Methods -------------
 
@@ -65,7 +68,7 @@ static List<BenchmarkResult> BenchmarkMultiple(int amount, int min, int[] maxima
 
 		benchmarkResults.Add(new BenchmarkResult(testcases, segmentBorders[i - 1], segmentBorders[i], engine));
 	}
-	benchmarkResults.Insert(0, new BenchmarkResult(allTestcases, min, maxima[-1], engine));
+	benchmarkResults.Insert(0, new BenchmarkResult(allTestcases, min, maxima[maxima.Length - 1], engine));
 	return benchmarkResults;
 }
 
@@ -119,13 +122,15 @@ static List<List<BenchmarkResult>> BenchmarkMultipleEngines(int amount, int min,
 		{
 			testcase.Run(false, engines[k]);
 		}
-		benchmarkResults[k].Insert(0, new BenchmarkResult(allTestcases, min, maxima[-1], engines[k]));
+		benchmarkResults[k].Insert(0, new BenchmarkResult(allTestcases, min, maxima[maxima.Length - 1], engines[k]));
 	}
 	return benchmarkResults;
 }
 
 struct BenchmarkResult
 {
+	private const int DecimalPlaces = 5;
+	
 	public readonly int MinTime, MaxTime, MinSpace, MaxSpace;
 	public readonly int TotalQueries, TotalTests;
 	public readonly double AverageTime, AverageSpacePerBit, AverageBvLength;
@@ -203,7 +208,7 @@ struct BenchmarkResult
 					FailedSpans.Add(new NumberSpan(i));
 					continue;
 				}
-				if (FailedSpans[-1].Add(i)) continue;
+				if (FailedSpans[FailedSpans.Count - 1].Add(i)) continue;
 				FailedSpans.Add(new NumberSpan(i));
 			}
 		}
@@ -217,29 +222,46 @@ struct BenchmarkResult
 		this.AverageBvLength = sumBvLength / TotalTests;
 	}
 
-	public override string ToString()
+	public override string ToString() => ToString(false);
+	public string ToString(bool isFull)
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.AppendLine("---------------------- Benchmark Result ----------------------")
-			.AppendLine()
+		builder.AppendLine().AppendLine($"---------------------- Benchmark Result [{(isFull ? "Full Length" : $"Length {_MinLength} - {_MaxLength}")}] ----------------------")
 			.AppendLine($"Engine: {Engine}")
 			.AppendLine($"Tests Performed: {TotalTests}")
 			.AppendLine($"Queries Performed: {TotalQueries}")
 			.AppendLine($"Bitvector Length: {_MinLength} - {_MaxLength}")
-			.AppendLine($"Average Bitvector Length: {AverageBvLength}")
+			.AppendLine($"Average Bitvector Length: {RoundTo(AverageBvLength, DecimalPlaces)}")
 			.AppendLine($"Failed Tests: {NumberSpan.ToString(FailedSpans)}")
 			.AppendLine()
-			.AppendLine("------- Time Benchmarks -------")
-			.AppendLine($"Average Time: {AverageTime}ms")
-			.AppendLine($"Shortest Time: {MinTime}ms")
-			.AppendLine($"Longest Time: {MaxTime}ms")
+			.AppendLine("---------- Time Benchmarks ----------")
+			.AppendLine($"  Average Time: {RoundTo(AverageTime, 2*DecimalPlaces)}ms")
+			.AppendLine($"  Shortest Time: {MinTime}ms")
+			.AppendLine($"  Longest Time: {MaxTime}ms")
+			.AppendLine("---------- Space Benchmarks (per bit) ----------")
+			.AppendLine($"  Average Space: {RoundTo(AverageSpacePerBit, DecimalPlaces)} bit")
+			.AppendLine($"  Minimal Space: {MinSpace} bit")
+			.AppendLine($"  Maximal Space: {MaxSpace} bit")
+			.AppendLine("------------------- End of Benchmark Result -------------------");
+		return builder.ToString();
+	}
+
+	public static String ToString(List<BenchmarkResult> benchmarkResults)
+	{
+		if (benchmarkResults.Count == 0) return "\n        - No Benchmark Results -\n";
+		StringBuilder builder = new StringBuilder();
+		builder.AppendLine(
+				$"------------------- Benchmark Collection Result [{benchmarkResults[0].Engine}] -------------------")
 			.AppendLine()
-			.AppendLine("------- Space Benchmarks (per bit) -------")
-			.AppendLine($"Average Space: {AverageSpacePerBit} bit")
-			.AppendLine($"Minimal Space: {MinSpace} bit")
-			.AppendLine($"Maximal Space: {MaxSpace} bit")
-			.AppendLine()
-			.AppendLine("------------------- End of Benchmark Result -------------------")
+			.AppendLine($"Benchmarks: {benchmarkResults.Count}")
+			.AppendLine($"Engine: {benchmarkResults[0].Engine}");
+		bool first = true;
+		foreach (var result in benchmarkResults)
+		{
+			builder.Append(result.ToString(first));
+			first = false;
+		}
+		builder.AppendLine("---------------- End of Benchmark Collection Result ----------------")
 			.AppendLine();
 		return builder.ToString();
 	}
@@ -286,5 +308,11 @@ struct BenchmarkResult
 			}
 			return builder.ToString();
 		}
+	}
+	
+	private static double RoundTo(double d, int decimals)
+	{
+		double exp = Math.Pow(10, decimals);
+		return Math.Round(d * exp) / exp;
 	}
 }
