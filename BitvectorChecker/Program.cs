@@ -99,12 +99,13 @@ static List<List<BenchmarkResult>> BenchmarkMultipleEngines(int amount, int min,
 
 		// For all engines, run all the testcases and save the benchmark in the list for the engine.
 		// If not list yet exists, make one.
+		int testNr = 0;
 		for (int k = 0; k < engines.Count; ++k)
 		{
 			string engine = engines[k];
 			foreach (Testcase testcase in testcases)
 			{
-				testcase.Run(false, engine);
+				testcase.Run(false, engine, ++testNr);
 			}
 
 			if (k >= benchmarkResults.Count) benchmarkResults.Add(new List<BenchmarkResult>());

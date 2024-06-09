@@ -54,8 +54,9 @@ public class Testcase
     /// </summary>
     /// <param name="engine">The C++ executable file name.</param>
     /// <param name="log">If success cases should be logged or not.</param>
+    /// <param name="testNumber">The test number. Must be positive or 0 to show up.</param>
     /// <returns>If all queries matches the expected results.</returns>
-    public bool Run(bool log, string engine = "bitvector")
+    public bool Run(bool log, string engine = "bitvector", int testNumber = -1)
     {
         // Reset Values
 
@@ -65,7 +66,7 @@ public class Testcase
         // Test
         
         StringBuilder output = new StringBuilder();
-        output.AppendLine("\n---------------------- Begin  Analysis ----------------------");
+        output.AppendLine($"\n---------------------- {(testNumber >= 0 ? $"Test {testNumber} | " : "")}Begin  Analysis ----------------------");
         output.AppendLine($"Output for input file {filepath}");
         output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
 
