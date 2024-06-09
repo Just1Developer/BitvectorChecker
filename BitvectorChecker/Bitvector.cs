@@ -81,4 +81,6 @@ public class Bitvector
 		foreach (int i in vector) builder.Append(i);
 		return builder.ToString();
 	}
+
+	public int Length { get => vector.Count; }
 }

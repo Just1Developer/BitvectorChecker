@@ -11,8 +11,10 @@ public class Testcase
     public int TotalTests { get; private set; }
     public int FailedTests { get; private set; }
     
+    public int QueryCount { get => Queries.Count; }
+    
     private readonly string filepath;
-    private readonly Bitvector Bitvector;
+    internal readonly Bitvector Bitvector;
     private readonly List<string> Queries;
     List<string> ResultComparator;
     
