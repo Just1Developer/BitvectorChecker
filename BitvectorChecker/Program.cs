@@ -3,23 +3,32 @@
 using System.Text;
 using BitvectorChecker;
 
-TestSingleFile("input1400", false, "bitvector2");
+//TestSingleFile("input1400", false, "bitvector2");
 
 /*
 //TestMultiple(200, 10, 60);
-var allBenchmarks = BenchmarkMultipleEngines(
-	200,
+
+*/
+
+PrintEngineBenchmarks(
+	100,
 	10,
 	new[] { 32, 64, 96, 128, 150 },
-	new List<string>() { "bitvector", "bitvector2" }
-	);
-Console.WriteLine("\n\n\n--------------------------------------- Benchmark Results ---------------------------------------\n\n\n");
-foreach (var benchmarks in allBenchmarks) Console.WriteLine(BenchmarkResult.ToString(benchmarks));
-Console.WriteLine("------------------------------------ End of Benchmark Results ------------------------------------\n\n");
-Console.WriteLine("------------------------------------ Engine Benchmark Results ------------------------------------");
-foreach (var benchmarks in allBenchmarks) Console.WriteLine(benchmarks.Count > 0 ? benchmarks[0].ToString(true) : "\n[No Results Available]\n");
-Console.WriteLine("--------------------------------- End of Engine Benchmark Results ---------------------------------");
-*/
+	new List<string>() { "bitvector", "bitvector2", "bitvector3" }
+);
+
+
+
+static void PrintEngineBenchmarks(int amount, int min, int[] maxima, List<string> engines)
+{
+	var allBenchmarks = BenchmarkMultipleEngines(amount, min, maxima, engines);
+	Console.WriteLine("\n\n\n--------------------------------------- Benchmark Results ---------------------------------------\n\n\n");
+	foreach (var benchmarks in allBenchmarks) Console.WriteLine(BenchmarkResult.ToString(benchmarks));
+	Console.WriteLine("------------------------------------ End of Benchmark Results ------------------------------------\n\n");
+	Console.WriteLine("------------------------------------ Engine Benchmark Results ------------------------------------");
+	foreach (var benchmarks in allBenchmarks) Console.WriteLine(benchmarks.Count > 0 ? benchmarks[0].ToString(true) : "\n[No Results Available]\n");
+	Console.WriteLine("--------------------------------- End of Engine Benchmark Results ---------------------------------");
+}
 
 
 
