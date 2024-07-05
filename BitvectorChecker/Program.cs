@@ -3,7 +3,8 @@
 using System.Text;
 using BitvectorChecker;
 
-//TestSingleFile("input1400", false, "bitvector2");
+TestSingleFile("inputlong", true, "bitvector5");
+return 0;
 
 /*
 //TestMultiple(200, 10, 60);
@@ -11,8 +12,8 @@ using BitvectorChecker;
 */
 
 PrintEngineBenchmarks(
-	100,
-	10,
+	1000,
+	5,
 	new[] { 32, 64, 96, 128, 150 },
 	new List<string>() { "bitvector", "bitvector2", "bitvector3" }
 );
@@ -115,9 +116,9 @@ static List<List<BenchmarkResult>> BenchmarkMultipleEngines(int amount, int min,
 
 		// For all engines, run all the testcases and save the benchmark in the list for the engine.
 		// If not list yet exists, make one.
-		int testNr = 0;
 		for (int k = 0; k < engines.Count; ++k)
 		{
+			int testNr = 0;
 			string engine = engines[k];
 			foreach (Testcase testcase in testcases)
 			{

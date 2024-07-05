@@ -57,6 +57,7 @@ public class Bitvector
 	
 	internal string ProcessCommand(string cmd)
 	{
+		if (cmd == "") return "";
 		string[] str = cmd.Split(" ");
 	
 		char command = str[0][0];

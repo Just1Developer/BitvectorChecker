@@ -39,7 +39,11 @@ public class Testcase
         ResultComparator = new List<string>();
         foreach (string query in Queries)
         {
-            ResultComparator.Add(Bitvector.ProcessCommand(query));
+            if (query == "") continue;
+            try
+            {
+                ResultComparator.Add(Bitvector.ProcessCommand(query));
+            } catch (Exception ignored) { }
         }
     }
 
