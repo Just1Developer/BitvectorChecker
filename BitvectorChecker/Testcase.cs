@@ -39,6 +39,8 @@ public class Testcase
         ResultComparator = new List<string>();
         foreach (string query in Queries)
         {
+            if (query == "") continue;
+            Console.WriteLine("Processing Query " + query);
             ResultComparator.Add(Bitvector.ProcessCommand(query));
         }
     }
@@ -72,7 +74,16 @@ public class Testcase
         output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
 
         var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath, engine), output);
-        
+
+        if (cpp_log == null || cpp_log.Count == 0)
+        {
+            cpp_log = new List<string>();
+            for (int i = 0; i < 100; ++i)
+            {
+                cpp_log.Add("-1");
+            }
+        }
+
         // For some reason, the executable isnt updated properly.
         if (cpp_log.Count > 0 && cpp_log[0] == "This is a test!")
         {

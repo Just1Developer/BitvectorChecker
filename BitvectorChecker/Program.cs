@@ -3,7 +3,10 @@
 using System.Text;
 using BitvectorChecker;
 
-//TestSingleFile("input1400", false, "bitvector2");
+TestSingleFile("inputsmol", true, "bitvector5");
+return 0;
+TestSingleFile("inputlarge", true, "bitvector5");
+return 0;
 
 /*
 //TestMultiple(200, 10, 60);
