@@ -130,18 +130,7 @@ public class Testcase
             }
         }
 
-        int d1 = 100000000;
-        int d2 = d1 / 100;
-        
         double overheadExact = ((double)Space / size - 1) * 100;
-        double overhead = Math.Round(((double) Space / size) * d1 - d1) / d2;
-        string overheadStr = ("" + overhead).Replace(",", ".");
-        if (overheadStr.Contains("."))
-        {
-            int pos = overheadStr.IndexOf('.');
-            if (overheadStr.Length > pos + 2) overheadStr = overheadStr.Substring(0, pos + 2);
-        }
-        else overheadStr += ".00";
         output.AppendLine("---------------------- =============== ----------------------");
         output.AppendLine($"Overhead (Round): {Math.Round(overheadExact, 5)}%");
         output.AppendLine($"Overhead (Exact): {overheadExact}%");
