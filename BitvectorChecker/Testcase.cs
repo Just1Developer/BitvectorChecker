@@ -31,17 +31,18 @@ public class Testcase
         string[] file = File.ReadAllLines(filepath);
         this.Bitvector = new Bitvector(file[1]);
         this.Queries = new List<string>();
-        /*
+        //*
         for (int i = 0; i < int.Parse(file[0]) && i < 1000; ++i)
         {
             Queries.Add(file[i + 2]);
         } 
-        */
-        for (int i = 0; i < 100; ++i)
+        //*/
+        /*
+         for (int i = 0; i < 100; ++i)
         {
             Queries.Add($"rank 0 {i}");
             Console.WriteLine($"rank 0 {i}");
-        }
+        }//*/
         
         ResultComparator = new List<string>();
         foreach (string query in Queries)

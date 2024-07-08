@@ -6,7 +6,7 @@ using BitvectorChecker;
 //Tester.NewSparseTestFile(10000000, 20000000);
 //return 0;
 
-TestSingleFile("input11", false, "bitvector5");
+TestSingleFile("input2", false, "bitvector5");
 return 0;
 TestSingleFile("inputlarge", true, "bitvector5");
 return 0;
