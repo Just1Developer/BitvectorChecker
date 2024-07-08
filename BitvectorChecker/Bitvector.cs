@@ -11,6 +11,8 @@ public class Bitvector
 	private Dictionary<long, long> rank_0;
 	private Dictionary<long, long> select_0;
 	private Dictionary<long, long> select_1;
+
+	private const bool USE_CACHE = false;
 	
 	public Bitvector(string vect)
 	{
@@ -32,7 +34,7 @@ public class Bitvector
 	public long Rank(long num, long pos)
 	{
 		long r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, -1);
-		if (r >= 0) return (long) r;
+		if (r >= 0 && USE_CACHE) return (long) r;
 		
 		long counter = 0;
 		#if EXCLUSIVE_RANK
@@ -49,7 +51,7 @@ public class Bitvector
 	public long Select(long num, long pos)
 	{
 		long r = (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, -1);
-		if (r >= 0) return (long) r;
+		if (r >= 0 && USE_CACHE) return (long) r;
 		
 		long counter = 0;
 		long i = -1;
@@ -66,19 +68,23 @@ public class Bitvector
 		foreach (char c in s)
 		{
 			vector.Add(c - '0');
-			rank_0.Add(index, zeros);
-			rank_1.Add(index, ones);
-			if (c == '1')
+			if (USE_CACHE)
 			{
-				select_1.Add(ones, index);
-				ones++;
+				rank_0.Add(index, zeros);
+				rank_1.Add(index, ones);
+				if (c == '1')
+				{
+					select_1.Add(ones, index);
+					ones++;
+				}
+				else if (c == '0')
+				{
+					select_0.Add(zeros, index);
+					zeros++;
+				}
+
+				index++;
 			}
-			else if (c == '0')
-			{
-				select_0.Add(zeros, index);
-				zeros++;
-			}
-			index++;
 		}
 	}
 	
