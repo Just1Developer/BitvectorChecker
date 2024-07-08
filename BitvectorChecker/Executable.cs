@@ -6,9 +6,34 @@ namespace BitvectorChecker;
 public static class Executable
 {
     public const string program_name = "bitvector";
-    
+
     internal static Process GetBitvectorProcess2(string inputFileName, string engineName = program_name)
     {
+        if (Environment.OSVersion.Platform.ToString().StartsWith("Win"))
+        {
+            return GetBitvectorProcess2_win(inputFileName, engineName);
+        }
+        return GetBitvectorProcess2_unix(inputFileName, engineName);
+    }
+    private static Process GetBitvectorProcess2_unix(string inputFileName, string engineName = program_name)
+    {
+        if (!File.Exists(engineName))
+        {
+            Console.Error.WriteLine($"Engine {engineName} does not exist, switching to default {program_name}");
+            engineName = program_name;
+        }
+        string executablePath = $"./{engineName}";  // Path to the executable in the application directory
+        string arguments = inputFileName;
+
+        Process process = new Process();
+        process.StartInfo = GetStartInfo(Environment.CurrentDirectory, executablePath, arguments);
+        process.EnableRaisingEvents = true;
+
+        return process;
+    }
+    private static Process GetBitvectorProcess2_win(string inputFileName, string engineName)
+    {
+        engineName += ".exe";
         if (!File.Exists(engineName))
         {
             Console.Error.WriteLine($"Engine {engineName} does not exist, switching to default {program_name}");
@@ -44,6 +69,7 @@ public static class Executable
         }
 
         process.WaitForExit();
+        Console.WriteLine($"CPP Process finished with exit code {process.ExitCode}.");
         return outputLines;
     }
 
