@@ -43,6 +43,11 @@ public class Bitvector
 		for (long i = 0; i <= Math.Min(pos, vector.Count - 1); i++)
 		#endif
 		{
+			if (i >= vector.Count)
+			{
+				Console.WriteLine($"ERROR: rank {num} {pos} was out of bounds for vector list size {vector.Count}.");
+				return -1;
+			}
 			if (vector[(int) i] == num) counter++;
 		}
 		return counter;
@@ -57,6 +62,11 @@ public class Bitvector
 		long i = -1;
 		while (counter < pos)
 		{
+			if (i >= vector.Count - 1)
+			{
+				Console.WriteLine($"ERROR: select {num} {pos} was out of bounds for vector list size {vector.Count}.");
+				return -1;
+			}
 			if (vector[(int) ++i] == num) counter++;
 		}
 		return i;

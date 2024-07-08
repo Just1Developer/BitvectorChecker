@@ -11,9 +11,11 @@
       <Content Include="bin\Debug\net7.0\bitvector5" />
       <Content Include="bin\Debug\net7.0\bitvector5.exe" />
       <Content Include="bin\Debug\net7.0\input1.in" />
+      <Content Include="bin\Debug\net7.0\input31.in" />
       <Content Include="bin\Debug\net7.0\input\bitvector5" />
       <Content Include="bin\Debug\net7.0\input\input1.in" />
       <Content Include="bin\Debug\net7.0\input\input2.in" />
+      <Content Include="bin\Debug\net7.0\input\input31.in" />
       <Content Include="bin\Debug\net7.0\input\inputsmol.in" />
       <Content Include="bin\Debug\net7.0\input\inputsmol2.in" />
     </ItemGroup>

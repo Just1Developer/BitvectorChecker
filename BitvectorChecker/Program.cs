@@ -3,10 +3,10 @@
 using System.Text;
 using BitvectorChecker;
 
-//Tester.NewSparseTestFile(10000000, 20000000);
+//Tester.NewSparseTestFile(10000000, 20000000, randomQueryCount: 2500);
 //return 0;
 
-TestSingleFile("input2", false, "bitvector5");
+TestSingleFile("input4", false, "bitvector5");
 return 0;
 TestSingleFile("inputlarge", true, "bitvector5");
 return 0;

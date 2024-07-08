@@ -5,6 +5,8 @@ namespace BitvectorChecker;
 
 public class Testcase
 {
+    public bool Verbose = false;
+    
     public int Time { get; private set; }
     public int Space { get; private set; }
     
@@ -32,7 +34,7 @@ public class Testcase
         this.Bitvector = new Bitvector(file[1]);
         this.Queries = new List<string>();
         //*
-        for (int i = 0; i < int.Parse(file[0]) && i < 1000; ++i)
+        for (int i = 0; i < int.Parse(file[0]); ++i)
         {
             Queries.Add(file[i + 2]);
         } 
@@ -48,7 +50,7 @@ public class Testcase
         foreach (string query in Queries)
         {
             if (query == "") continue;
-            Console.WriteLine("Processing Query " + query);
+            if (Verbose) Console.WriteLine("Processing Query " + query);
             ResultComparator.Add(Bitvector.ProcessCommand(query));
         }
     }
