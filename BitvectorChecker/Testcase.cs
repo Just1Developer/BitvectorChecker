@@ -64,6 +64,7 @@ public class Testcase
 
         TotalTests = 0;
         FailedTests = 0;
+        long size = Bitvector.ToString().Length;
         
         // Test
         
@@ -71,7 +72,7 @@ public class Testcase
         output.AppendLine($"\n---------------------- {(testNumber >= 0 ? $"Test {testNumber} | " : "")}Begin  Analysis ----------------------");
         output.AppendLine($"Output for input file {filepath}");
         output.AppendLine($"Engine: {engine}");
-        output.AppendLine($"Bitvector: {Bitvector.ToString()} (length: {Bitvector.ToString().Length})");
+        output.AppendLine($"Bitvector: {(size > 10000 ? "<big vector>" : Bitvector.ToString())} (length: {size})");
 
         var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath, engine), output);
 
@@ -92,7 +93,7 @@ public class Testcase
         
         int max = Math.Min(ResultComparator.Count, cpp_log.Count);
         output.AppendLine($"Output comparisons: {max} (cs: {ResultComparator.Count}, cpp: {cpp_log.Count})");
-        output.AppendLine("   Query            Expected (C#)        Returned (C++)");
+        output.AppendLine("   Query                Expected (C#)            Returned (C++)");
         
         bool success = true;
         for (int i = 0; i < max; i++)
@@ -110,9 +111,7 @@ public class Testcase
         }
         TotalTests = max;
 
-        if (!log && success) output.AppendLine("\n                [ No Failures to Show ]\n");
-        output.AppendLine("---------------------- End of Analysis ----------------------");
-        Console.WriteLine(output.ToString());
+        if (!log && success) output.AppendLine("\n                        [ No Failures to Show ]\n");
 
         string resultEntry = cpp_log.Count == 0 ? "-" : cpp_log[cpp_log.Count - 1];
         if (resultEntry.StartsWith("RESULT"))
@@ -130,12 +129,30 @@ public class Testcase
                 Space = 1;
             }
         }
+
+        int d1 = 100000000;
+        int d2 = d1 / 100;
+        
+        double overheadExact = ((double)Space / size - 1) * 100;
+        double overhead = Math.Round(((double) Space / size) * d1 - d1) / d2;
+        string overheadStr = ("" + overhead).Replace(",", ".");
+        if (overheadStr.Contains("."))
+        {
+            int pos = overheadStr.IndexOf('.');
+            if (overheadStr.Length > pos + 2) overheadStr = overheadStr.Substring(0, pos + 2);
+        }
+        else overheadStr += ".00";
+        output.AppendLine("---------------------- =============== ----------------------");
+        output.AppendLine($"Overhead (Round): {Math.Round(overheadExact, 5)}%");
+        output.AppendLine($"Overhead (Exact): {overheadExact}%");
+        output.AppendLine("---------------------- End of Analysis ----------------------");
+        Console.WriteLine(output.ToString());
         
         return success;
     }
 
-    private const int QueryStringMaxLength = 20;
-    private const int ResultNumberLength = 5;
+    private const int QueryStringMaxLength = 25;
+    private const int ResultNumberLength = 15;
 
     private string Format(string query, string expected, string result)
     {

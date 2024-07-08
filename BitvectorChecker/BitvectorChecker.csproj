@@ -7,4 +7,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="bin\Debug\net7.0\bitvector5" />
+      <Content Include="bin\Debug\net7.0\input1.in" />
+      <Content Include="bin\Debug\net7.0\input\bitvector5" />
+      <Content Include="bin\Debug\net7.0\input\inputsmol.in" />
+      <Content Include="bin\Debug\net7.0\input\inputsmol2.in" />
+    </ItemGroup>
+
 </Project>
