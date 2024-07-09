@@ -66,8 +66,8 @@ public class Tester
         return testcase;
     }
     
-    public static void NewSparseTestFile(int minLength, int maxLength, string? randomParameter = null, int randomQueryCount = 1000) => NewSparseTestFile(Random.Next(minLength, maxLength), randomQueryCount); 
-    public static void NewSparseTestFile(int length, int randomQueryCount = 1000)
+    public static String NewSparseTestFile(int minLength, int maxLength, string? randomParameter = null, int randomQueryCount = 1000) => NewSparseTestFile(Random.Next(minLength, maxLength), randomQueryCount); 
+    public static String NewSparseTestFile(int length, int randomQueryCount = 1000)
     {
         StringBuilder vectorbuilder = new StringBuilder();
         List<string> commands = new List<string>();
@@ -99,16 +99,6 @@ public class Tester
             commands.Add($"select 0 1");
             commands.Add($"select 0 {zeros}");
         }
-
-        /*
-        for (int i = 4095; i < length; i += 4096)
-        {
-            if (Random.NextSingle() > 0.5f) continue;
-            commands.Add($"rank 0 {i}");
-            commands.Add($"rank 1 {i}");
-            commands.Add($"rank 0 {i+1}");
-            commands.Add($"rank 1 {i+1}");
-        }*/
         
         // Random access queries:
         for (int k = 0; k < randomQueryCount; ++k)
@@ -122,8 +112,8 @@ public class Tester
             }
             else
             {
-                commands.Add($"select 0 {Random.Next(0, ones) + 1}");
-                commands.Add($"select 1 {Random.Next(0, zeros) + 1}");
+                commands.Add($"select 0 {Random.Next(0, zeros) + 1}");
+                commands.Add($"select 1 {Random.Next(0, ones) + 1}");
             }
         }
 
@@ -145,6 +135,8 @@ public class Tester
         if (!Directory.Exists("./input/"))
             Directory.CreateDirectory("./input/");
         File.WriteAllText(_path, fileContentBuilder.ToString());
+
+        return $"input{j}";
     }
 
     public static void AddCommandToBuilder(ref StringBuilder builder, ref List<string> list, int index)

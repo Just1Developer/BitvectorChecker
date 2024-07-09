@@ -12,7 +12,7 @@ public class Bitvector
 	private Dictionary<long, long> select_0;
 	private Dictionary<long, long> select_1;
 
-	private const bool USE_CACHE = false;
+	private const bool USE_CACHE = true;
 	
 	public Bitvector(string vect)
 	{
@@ -84,18 +84,18 @@ public class Bitvector
 				rank_1.Add(index, ones);
 				if (c == '1')
 				{
-					select_1.Add(ones, index);
 					ones++;
+					select_1.Add(ones, index);
 				}
 				else if (c == '0')
 				{
-					select_0.Add(zeros, index);
 					zeros++;
+					select_0.Add(zeros, index);
 				}
-
 				index++;
 			}
 		}
+		Console.WriteLine($"Read Vector, got {ones} Ones and {zeros} Zeros, Index: {index}.");
 	}
 	
 	internal string ProcessCommand(string cmd)

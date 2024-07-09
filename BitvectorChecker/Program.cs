@@ -3,6 +3,15 @@
 using System.Text;
 using BitvectorChecker;
 
+// This creates a new Testfile and runs it. Usually, this is all you need. In the Analysis you can see the filename, if you want to
+// Test the specific file again. Calls below test the specific file "input4". This just addresses the file ./input/input4.in
+
+// The engine is the executable name. On Windows (when I add windows support), do NOT include the ".exe" file ending.
+// On Unix systems, make sure the file is executable with chmod +x <engine name>
+
+TestSingleFile(Tester.NewSparseTestFile(50000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
+return 0;
+
 //Tester.NewSparseTestFile(10000000, 20000000, randomQueryCount: 2500);
 //return 0;
 
