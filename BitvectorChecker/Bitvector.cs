@@ -6,13 +6,17 @@ namespace BitvectorChecker;
 
 public class Bitvector
 {
-	private List<long> vector;
+	private const int CacheFrequencyShift = 10;
+	private const int CacheFrequency = 1 << CacheFrequencyShift;
+	
+	private List<byte> vector;
 	private Dictionary<long, long> rank_1;
 	private Dictionary<long, long> rank_0;
 	private Dictionary<long, long> select_0;
 	private Dictionary<long, long> select_1;
 
 	private const bool USE_CACHE = true;
+	private const bool SPARSE_CACHE = false;
 	
 	public Bitvector(string vect)
 	{
@@ -24,7 +28,7 @@ public class Bitvector
 		ReadVector(vect);
 	}
 
-	public long Access(long pos)
+	public byte Access(long pos)
 	{
 		return vector[(int) pos];
 	}
@@ -33,8 +37,36 @@ public class Bitvector
 	
 	public long Rank(long num, long pos)
 	{
-		long r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, -1);
-		if (r >= 0 && USE_CACHE) return (long) r;
+		long r;
+
+		if (USE_CACHE)
+		{
+			if (!SPARSE_CACHE)
+			{
+				r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, -1);
+				if (r >= 0 && USE_CACHE) return r;
+			}
+			long cacheIndex = (pos >> CacheFrequencyShift) - 1;
+			long remaining = pos & (CacheFrequency - 1);
+			r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
+
+			if (cacheIndex >= 0)
+			{
+				for (int i = 0; i < remaining; ++i)
+				{
+					if (cacheIndex + i >= vector.Count)
+					{
+						Console.WriteLine(
+							$"ERROR: rank {num} {pos} was out of bounds for vector list size {vector.Count}.");
+						return -1;
+					}
+
+					if (vector[(int)(cacheIndex + i)] == num) r++;
+				}
+
+				return r;
+			}
+		}
 		
 		long counter = 0;
 		#if EXCLUSIVE_RANK
@@ -55,31 +87,64 @@ public class Bitvector
 
 	public long Select(long num, long pos)
 	{
-		long r = (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, -1);
-		if (r >= 0 && USE_CACHE) return (long) r;
+		long r;
+
+		if (USE_CACHE)
+		{
+			if (!SPARSE_CACHE)
+			{
+				r = (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, -1);
+				if (r >= 0 && USE_CACHE) return r;
+			}
+			long cacheIndex = (pos >> (CacheFrequencyShift)) - 1;
+			r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
+
+			if (cacheIndex >= 0)
+			{
+				int i = 0;
+				while (r < pos)
+				{
+					if (cacheIndex + i >= vector.Count)
+					{
+						Console.WriteLine(
+							$"ERROR: select {num} {pos} was out of bounds for vector list size {vector.Count}.");
+						return -1;
+					}
+
+					if (vector[(int)(cacheIndex + i)] == num) r++;
+					++i;
+				}
+
+				return r;
+			}
+		}
 		
 		long counter = 0;
-		long i = -1;
+		long _i = -1;
 		while (counter < pos)
 		{
-			if (i >= vector.Count - 1)
+			if (_i >= vector.Count - 1)
 			{
 				Console.WriteLine($"ERROR: select {num} {pos} was out of bounds for vector list size {vector.Count}.");
 				return -1;
 			}
-			if (vector[(int) ++i] == num) counter++;
+			if (vector[(int) ++_i] == num) counter++;
 		}
-		return i;
+		return _i;
 	}
 
 	private void ReadVector(string s)
 	{
 		long ones = 0, zeros = 0, index = 0;
+		int cacheIndex = 0;
 		foreach (char c in s)
 		{
-			vector.Add(c - '0');
-			if (USE_CACHE)
+			vector.Add((byte) (c - '0'));
+			++cacheIndex;
+			
+			if (USE_CACHE && (!SPARSE_CACHE || cacheIndex >= CacheFrequency))
 			{
+				cacheIndex = 0;
 				rank_0.Add(index, zeros);
 				rank_1.Add(index, ones);
 				if (c == '1')
@@ -92,8 +157,13 @@ public class Bitvector
 					zeros++;
 					select_0.Add(zeros, index);
 				}
-				index++;
 			}
+			else
+			{
+				if (c == '1') ones++;
+				else zeros++;
+			}
+			index++;
 		}
 		Console.WriteLine($"Read Vector, got {ones} Ones and {zeros} Zeros, Index: {index}.");
 	}

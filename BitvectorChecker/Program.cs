@@ -9,13 +9,22 @@ using BitvectorChecker;
 // The engine is the executable name. On Windows (when I add windows support), do NOT include the ".exe" file ending.
 // On Unix systems, make sure the file is executable with chmod +x <engine name>
 
-TestSingleFile(Tester.NewSparseTestFile(50000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
+string? testInputFileName = "input8";	// Null or Empty String to Generate New
+
+if (testInputFileName != null && File.Exists($"./input/{testInputFileName}.in")) {
+	TestSingleFile(testInputFileName, false, "bitvector5");
+} else {
+	TestSingleFile(Tester.NewSparseTestFile(45000000, 50000000, randomQueryCount: 5000), false, "bitvector5");
+}
 return 0;
+
+//TestSingleFile(Tester.NewSparseTestFile(45000000, 50000000, randomQueryCount: 5000), false, "bitvector5");
+//return 0;
 
 //Tester.NewSparseTestFile(10000000, 20000000, randomQueryCount: 2500);
 //return 0;
 
-TestSingleFile("input4", false, "bitvector5");
+TestSingleFile("input8", false, "bitvector5");
 return 0;
 TestSingleFile("inputlarge", true, "bitvector5");
 return 0;

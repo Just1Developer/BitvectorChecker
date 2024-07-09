@@ -144,6 +144,17 @@ public class Testcase
         output.AppendLine("---------------------- =============== ----------------------");
         output.AppendLine($"Overhead (Round): {Math.Round(overheadExact, 5)}%");
         output.AppendLine($"Overhead (Exact): {overheadExact}%");
+        output.AppendLine($"Total Time: {Time} ms for {max} Queries");
+        var TimePerQueryInNS = ((double) Time * 1000000) / max;
+        string suffix;
+        if (TimePerQueryInNS >= 10000) {
+            TimePerQueryInNS /= 1000;
+            suffix = "µs";
+        } else {
+            suffix = "ns";
+        }
+        output.AppendLine($"Average Time Per Query (Round): {Math.Round(TimePerQueryInNS, 3)} {suffix}");
+        output.AppendLine($"Average Time Per Query (Exact): {TimePerQueryInNS} {suffix}");
         output.AppendLine("---------------------- End of Analysis ----------------------");
         Console.WriteLine(output.ToString());
         
