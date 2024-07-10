@@ -9,12 +9,13 @@ using BitvectorChecker;
 // The engine is the executable name. On Windows (when I add windows support), do NOT include the ".exe" file ending.
 // On Unix systems, make sure the file is executable with chmod +x <engine name>
 
-string? testInputFileName = "input8";	// Null or Empty String to Generate New
+string? testInputFileName = "input13";	// Null or Empty String to Generate New			Todo input13 has rank/select fails
 
 if (testInputFileName != null && File.Exists($"./input/{testInputFileName}.in")) {
 	TestSingleFile(testInputFileName, false, "bitvector5");
 } else {
-	TestSingleFile(Tester.NewSparseTestFile(45000000, 50000000, randomQueryCount: 5000), false, "bitvector5");
+	//TestSingleFile(Tester.NewSparseTestFile(95000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
+	TestSingleFile(Tester.NewSparseTestFile(95, 10000, randomQueryCount: 500), false, "bitvector5");
 }
 return 0;
 

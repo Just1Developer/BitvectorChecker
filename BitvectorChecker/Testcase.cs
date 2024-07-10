@@ -82,7 +82,7 @@ public class Testcase
         output.AppendLine($"\n---------------------- {(testNumber >= 0 ? $"Test {testNumber} | " : "")}Begin  Analysis ----------------------");
         output.AppendLine($"Output for input file {filepath}");
         output.AppendLine($"Engine: {engine}");
-        output.AppendLine($"Bitvector: {(size > 10000 ? "<big vector>" : Bitvector.ToString())} (length: {size})");
+        output.AppendLine($"Bitvector: {(size > 100 ? "<big vector>" : Bitvector.ToString())} (length: {size})");
 
         var cpp_log = Executable.PrimitiveRun(Executable.GetBitvectorProcess2(filepath, engine), output);
 
@@ -103,7 +103,7 @@ public class Testcase
         
         int max = Math.Min(ResultComparator.Count, cpp_log.Count);
         output.AppendLine($"Output comparisons: {max} (cs: {ResultComparator.Count}, cpp: {cpp_log.Count})");
-        output.AppendLine("   Query                Expected (C#)            Returned (C++)");
+        output.AppendLine("   Query                      Expected (C#)            Returned (C++)");
         
         bool success = true;
         for (int i = 0; i < max; i++)
@@ -124,6 +124,14 @@ public class Testcase
         if (!log && success) output.AppendLine("\n                        [ No Failures to Show ]\n");
 
         string resultEntry = cpp_log.Count == 0 ? "-" : cpp_log[cpp_log.Count - 1];
+        string evalEntry = cpp_log.Count < 2 ? "-" : cpp_log[cpp_log.Count - 2];
+
+        if (resultEntry.StartsWith("EVAL"))
+        {
+            resultEntry = evalEntry;
+            evalEntry = cpp_log.Count == 0 ? "-" : cpp_log[cpp_log.Count - 1];
+        }
+        
         if (resultEntry.StartsWith("RESULT"))
         {
             var regex = new Regex(@"time=(\d+) space=(\d+)");
@@ -140,16 +148,33 @@ public class Testcase
             }
         }
 
+        long QueryTime = -1;
+        if (evalEntry.StartsWith("EVAL"))
+        {
+            var regex = new Regex(@"time=(\d+)");
+            var match = regex.Match(evalEntry);
+            if (match.Success)
+            {
+                QueryTime = long.Parse(match.Groups[1].Value);
+            }
+        }
+
         double overheadExact = ((double)Space / size - 1) * 100;
         output.AppendLine("---------------------- =============== ----------------------");
         output.AppendLine($"Overhead (Round): {Math.Round(overheadExact, 5)}%");
         output.AppendLine($"Overhead (Exact): {overheadExact}%");
         output.AppendLine($"Total Time: {Time} ms for {max} Queries");
-        var TimePerQueryInNS = ((double) Time * 1000000) / max;
+        output.AppendLine($"Total Query Only Time: {QueryTime} ns (nanosecs)");
+        var TimePerQueryInNS = (double) QueryTime / max;
         string suffix;
         if (TimePerQueryInNS >= 10000) {
             TimePerQueryInNS /= 1000;
-            suffix = "µs";
+            if (TimePerQueryInNS >= 10000) {
+                TimePerQueryInNS /= 1000;
+                suffix = "ms";
+            } else {
+                suffix = "µs";
+            }
         } else {
             suffix = "ns";
         }

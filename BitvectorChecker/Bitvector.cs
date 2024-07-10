@@ -6,7 +6,7 @@ namespace BitvectorChecker;
 
 public class Bitvector
 {
-	private const int CacheFrequencyShift = 10;
+	private const int CacheFrequencyShift = 4; // 10
 	private const int CacheFrequency = 1 << CacheFrequencyShift;
 	
 	private List<byte> vector;
@@ -48,7 +48,7 @@ public class Bitvector
 			}
 			long cacheIndex = (pos >> CacheFrequencyShift) - 1;
 			long remaining = pos & (CacheFrequency - 1);
-			r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
+			r = cacheIndex <= 0 ? 0 : (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
 
 			if (cacheIndex >= 0)
 			{
@@ -67,6 +67,8 @@ public class Bitvector
 				return r;
 			}
 		}
+
+		return -2;
 		
 		long counter = 0;
 		#if EXCLUSIVE_RANK
@@ -96,8 +98,8 @@ public class Bitvector
 				r = (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, -1);
 				if (r >= 0 && USE_CACHE) return r;
 			}
-			long cacheIndex = (pos >> (CacheFrequencyShift)) - 1;
-			r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
+			long cacheIndex = (pos >> (CacheFrequencyShift));
+			r = cacheIndex == 0 ? 0 : (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, 0);
 
 			if (cacheIndex >= 0)
 			{
@@ -115,9 +117,10 @@ public class Bitvector
 					++i;
 				}
 
-				return r;
+				return --i;
 			}
 		}
+		return -2;
 		
 		long counter = 0;
 		long _i = -1;
@@ -165,7 +168,7 @@ public class Bitvector
 			}
 			index++;
 		}
-		Console.WriteLine($"Read Vector, got {ones} Ones and {zeros} Zeros, Index: {index}.");
+		Console.WriteLine($"Read Vector, got {ones} Ones and {zeros} Zeros.");
 	}
 	
 	internal string ProcessCommand(string cmd)

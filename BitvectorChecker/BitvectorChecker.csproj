@@ -18,6 +18,7 @@
       <Content Include="bin\Debug\net7.0\input\input31.in" />
       <Content Include="bin\Debug\net7.0\input\inputsmol.in" />
       <Content Include="bin\Debug\net7.0\input\inputsmol2.in" />
+      <Content Include="bin\Debug\net7.0\input\inputTest.in" />
     </ItemGroup>
 
 </Project>
