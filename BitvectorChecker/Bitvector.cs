@@ -9,11 +9,11 @@ public class Bitvector
 	private const int CacheFrequencyShift = 4; // 10
 	private const int CacheFrequency = 1 << CacheFrequencyShift;
 	
-	private List<byte> vector;
-	private Dictionary<long, long> rank_1;
-	private Dictionary<long, long> rank_0;
-	private Dictionary<long, long> select_0;
-	private Dictionary<long, long> select_1;
+	private LargeList<byte> vector;
+	private LargeDictionary<long, long> rank_1;
+	private LargeDictionary<long, long> rank_0;
+	private LargeDictionary<long, long> select_0;
+	private LargeDictionary<long, long> select_1;
 
 	private const bool USE_CACHE = true;
 	private const bool SPARSE_CACHE = false;
@@ -21,10 +21,10 @@ public class Bitvector
 	public Bitvector(string vect)
 	{
 		vector = new();
-		rank_0 = new Dictionary<long, long>();
-		rank_1 = new Dictionary<long, long>();
-		select_0 = new Dictionary<long, long>();
-		select_1 = new Dictionary<long, long>();
+		rank_0 = new LargeDictionary<long, long>();
+		rank_1 = new LargeDictionary<long, long>();
+		select_0 = new LargeDictionary<long, long>();
+		select_1 = new LargeDictionary<long, long>();
 		ReadVector(vect);
 	}
 
@@ -57,7 +57,7 @@ public class Bitvector
 					if (cacheIndex + i >= vector.Count)
 					{
 						Console.WriteLine(
-							$"ERROR: rank {num} {pos} was out of bounds for vector list size {vector.Count}.");
+							$"ERROR: rank {num} {pos} was out of bounds for vector LargeList size {vector.Count}.");
 						return -1;
 					}
 
@@ -79,7 +79,7 @@ public class Bitvector
 		{
 			if (i >= vector.Count)
 			{
-				Console.WriteLine($"ERROR: rank {num} {pos} was out of bounds for vector list size {vector.Count}.");
+				Console.WriteLine($"ERROR: rank {num} {pos} was out of bounds for vector LargeList size {vector.Count}.");
 				return -1;
 			}
 			if (vector[(int) i] == num) counter++;
@@ -109,7 +109,7 @@ public class Bitvector
 					if (cacheIndex + i >= vector.Count)
 					{
 						Console.WriteLine(
-							$"ERROR: select {num} {pos} was out of bounds for vector list size {vector.Count}.");
+							$"ERROR: select {num} {pos} was out of bounds for vector LargeList size {vector.Count}.");
 						return -1;
 					}
 
@@ -128,7 +128,7 @@ public class Bitvector
 		{
 			if (_i >= vector.Count - 1)
 			{
-				Console.WriteLine($"ERROR: select {num} {pos} was out of bounds for vector list size {vector.Count}.");
+				Console.WriteLine($"ERROR: select {num} {pos} was out of bounds for vector LargeList size {vector.Count}.");
 				return -1;
 			}
 			if (vector[(int) ++_i] == num) counter++;

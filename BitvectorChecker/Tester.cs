@@ -66,13 +66,14 @@ public class Tester
         return testcase;
     }
     
-    public static String NewSparseTestFile(int minLength, int maxLength, string? randomParameter = null, int randomQueryCount = 1000) => NewSparseTestFile(Random.Next(minLength, maxLength), randomQueryCount); 
-    public static String NewSparseTestFile(int length, int randomQueryCount = 1000)
+    public static String NewSparseTestFile(ulong minLength, ulong maxLength, string? randomParameter = null, long randomQueryCount = 1000) => NewSparseTestFile(
+        (((long)Random.Next((int)(minLength >> 32), (int)(maxLength >> 32))) << 32) | ((long) Random.Next((int)minLength, (int)maxLength)), randomQueryCount); 
+    public static String NewSparseTestFile(long length, long randomQueryCount = 1000)
     {
         StringBuilder vectorbuilder = new StringBuilder();
         List<string> commands = new List<string>();
-        int ones = 0, zeros = 0;
-        for (int i = 0; i < length; ++i)
+        long ones = 0, zeros = 0;
+        for (long i = 0; i < length; ++i)
         {
             if (Random.NextDouble() > 0.5)
             {
@@ -104,16 +105,16 @@ public class Tester
         for (int k = 0; k < randomQueryCount; ++k)
         {
             float rnd = Random.NextSingle();
-            if (rnd < 0.1) commands.Add($"access {Random.Next(0, length)}");
+            if (rnd < 0.1) commands.Add($"access {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
             else if (rnd < 0.4)
             {
-                commands.Add($"rank 0 {Random.Next(0, length)}");
-                commands.Add($"rank 1 {Random.Next(0, length)}");
+                commands.Add($"rank 0 {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
+                commands.Add($"rank 1 {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
             }
             else
             {
-                commands.Add($"select 0 {Random.Next(0, zeros) + 1}");
-                commands.Add($"select 1 {Random.Next(0, ones) + 1}");
+                commands.Add($"select 0 {(long) ((long) Random.Next(0, (int)zeros) | (long)Random.Next(0, (int)(zeros >> 32)) << 32) + 1}");
+                commands.Add($"select 1 {(long) ((long) Random.Next(0, (int)ones) | (long)Random.Next(0, (int)(ones >> 32)) << 32) + 1}");
             }
         }
 

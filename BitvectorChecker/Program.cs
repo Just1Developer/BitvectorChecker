@@ -14,10 +14,10 @@ string? testInputFileName = "input-";	// Null or Empty String to Generate New			
 if (testInputFileName != null && File.Exists($"./input/{testInputFileName}.in")) {
 	TestSingleFile(testInputFileName, false, "bitvector5");
 } else {
-	for (int i = 0; i < 100; ++i)
+	for (int i = 0; i < 1; ++i)
 	{
 		//TestSingleFile(Tester.NewSparseTestFile(95000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
-		TestSingleFile(Tester.NewSparseTestFile(50000000 + 1000*i, 100000000 + 10000*i, randomQueryCount: 3500), false, "bitvector5");
+		TestSingleFile(Tester.NewSparseTestFile(8000000000, 8200000000, randomQueryCount: 5000), false, "bitvector5");
 		Thread.Sleep(400);
 	}
 }
