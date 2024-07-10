@@ -39,11 +39,20 @@ public static class Executable
             Console.Error.WriteLine($"Engine {engineName} does not exist, switching to default {program_name}");
             engineName = program_name;
         }
-        string executablePath = $"./{engineName}";  // Path to the executable in the application directory
+        string executablePath = Path.Combine(Environment.CurrentDirectory, engineName);  // Path to the executable in the application directory
         string arguments = inputFileName;
 
         Process process = new Process();
-        process.StartInfo = GetStartInfo(Environment.CurrentDirectory, executablePath, arguments);
+        process.StartInfo = new ProcessStartInfo
+        {
+            FileName = executablePath,
+            Arguments = arguments,
+            WorkingDirectory = Environment.CurrentDirectory,
+            UseShellExecute = false,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            CreateNoWindow = true
+        };
         process.EnableRaisingEvents = true;
 
         return process;
