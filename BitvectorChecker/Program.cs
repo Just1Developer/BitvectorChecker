@@ -18,7 +18,7 @@ if (testInputFileName != null && File.Exists($"./input/{testInputFileName}.in"))
 	{
 		//TestSingleFile(Tester.NewSparseTestFile(95000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
 		//TestSingleFile(Tester.NewSparseTestFile(8000000000, 8200000000, randomQueryCount: 5000), false, "bitvector5");
-		TestSingleFile(Tester.NewSparseTestFile(80, 820, randomQueryCount: 50), false, "bitvector5");
+		TestSingleFile(Tester.NewSparseTestFile(1000000000, randomQueryCount: 5000), false, "bitvector5");
 		Thread.Sleep(400);
 	}
 }
@@ -245,8 +245,8 @@ struct BenchmarkResult
 			
 			sumTime += testcase.Time;
 			sumSpace += testcase.Space;
-			sumSpacePerBit += (double) testcase.Space / testcase.Bitvector.Length;
-			sumBvLength += testcase.Bitvector.Length;
+			sumSpacePerBit += (double) testcase.Space / testcase.Bitvector.Length();
+			sumBvLength += testcase.Bitvector.Length();
 			TotalQueries += testcase.QueryCount;
 			TotalTests++;
 			

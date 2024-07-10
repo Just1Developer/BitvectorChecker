@@ -13,8 +13,8 @@ public class Tester
     
     private static Random Random = new ();
     
-    public static Testcase NewTest(int minLength, int maxLength) => NewTest(Random.Next(minLength, maxLength)); 
-    public static Testcase NewTest(int length)
+    public static Testcase NewTest(int minLength, int maxLength, bool UseSparseCaching = false) => NewTest(Random.Next(minLength, maxLength), UseSparseCaching); 
+    public static Testcase NewTest(int length, bool UseSparseCaching = false)
     {
         StringBuilder vectorbuilder = new StringBuilder();
         StringBuilder commandBuilder = new StringBuilder();
@@ -69,7 +69,7 @@ public class Tester
         if (!Directory.Exists("./input/"))
             Directory.CreateDirectory("./input/");
         File.WriteAllText(_path, fileContentBuilder.ToString());
-        Testcase testcase = new Testcase(_path);
+        Testcase testcase = new Testcase(_path, UseSparseCaching);
         return testcase;
     }
     

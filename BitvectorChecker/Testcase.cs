@@ -16,7 +16,7 @@ public class Testcase
     public int QueryCount { get => Queries.Count; }
     
     private readonly string filepath;
-    internal readonly Bitvector Bitvector;
+    internal readonly IBitvector Bitvector;
     private readonly List<string> Queries;
     List<string> ResultComparator;
     
@@ -27,11 +27,11 @@ public class Testcase
     /// amount of commands is specified in line 1.
     /// </summary>
     /// <param name="filepath">The path of the input file. Will be relayed to the c++ program later as well.</param>
-    public Testcase(string filepath)
+    public Testcase(string filepath, bool UseSparseCaching = false)
     {
         this.filepath = filepath;
         string[] file = File.ReadAllLines(filepath);
-        this.Bitvector = new Bitvector(file[1]);
+        this.Bitvector = UseSparseCaching ? new BitvectorGpt4Improved(file[1]) : new Bitvector(file[1]);
         this.Queries = new List<string>();
         //*
         for (int i = 0; i < int.Parse(file[0]); ++i)
