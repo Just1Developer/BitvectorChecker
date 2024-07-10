@@ -17,7 +17,7 @@ if (testInputFileName != null && File.Exists($"./input/{testInputFileName}.in"))
 	for (int i = 0; i < 100; ++i)
 	{
 		//TestSingleFile(Tester.NewSparseTestFile(95000000, 100000000, randomQueryCount: 5000), false, "bitvector5");
-		TestSingleFile(Tester.NewSparseTestFile(10000000 + 1000*i, 100000000 + 10000*i, randomQueryCount: 3500), false, "bitvector5");
+		TestSingleFile(Tester.NewSparseTestFile(50000000 + 1000*i, 100000000 + 10000*i, randomQueryCount: 3500), false, "bitvector5");
 		Thread.Sleep(400);
 	}
 }
