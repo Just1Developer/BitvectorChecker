@@ -8,6 +8,8 @@ public class Bitvector
 {
 	private const int CacheFrequencyShift = 4; // 10
 	private const int CacheFrequency = 1 << CacheFrequencyShift;
+	private const int CacheFrequencyMask = CacheFrequency - 1;
+	private const int CacheFrequencyInverseMask = ~CacheFrequencyMask;
 	
 	private LargeList<byte> vector;
 	private LargeDictionary<long, long> rank_1;
@@ -16,7 +18,7 @@ public class Bitvector
 	private LargeDictionary<long, long> select_1;
 
 	private const bool USE_CACHE = true;
-	private const bool SPARSE_CACHE = false;
+	private const bool SPARSE_CACHE = true;
 	
 	public Bitvector(string vect)
 	{
@@ -46,8 +48,9 @@ public class Bitvector
 				r = (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, -1);
 				if (r >= 0 && USE_CACHE) return r;
 			}
-			long cacheIndex = (pos >> CacheFrequencyShift) - 1;
-			long remaining = pos & (CacheFrequency - 1);
+
+			long cacheIndex = pos & CacheFrequencyInverseMask; // (pos >> CacheFrequencyShift) - 1;
+			long remaining = pos & CacheFrequencyMask;
 			r = cacheIndex <= 0 ? 0 : (num == 0 ? rank_0 : rank_1).GetValueOrDefault(pos, 0);
 
 			if (cacheIndex >= 0)
@@ -98,7 +101,8 @@ public class Bitvector
 				r = (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, -1);
 				if (r >= 0 && USE_CACHE) return r;
 			}
-			long cacheIndex = (pos >> (CacheFrequencyShift));
+
+			long cacheIndex = pos & CacheFrequencyInverseMask; //(pos >> (CacheFrequencyShift));
 			r = cacheIndex == 0 ? 0 : (num == 0 ? select_0 : select_1).GetValueOrDefault(pos, 0);
 
 			if (cacheIndex >= 0)
@@ -139,26 +143,27 @@ public class Bitvector
 	private void ReadVector(string s)
 	{
 		long ones = 0, zeros = 0, index = 0;
-		int cacheIndex = 0;
+		int cacheIndex = 0, cacheIndex2 = 0;
 		foreach (char c in s)
 		{
 			vector.Add((byte) (c - '0'));
 			++cacheIndex;
+			++cacheIndex2;
 			
 			if (USE_CACHE && (!SPARSE_CACHE || cacheIndex >= CacheFrequency))
 			{
 				cacheIndex = 0;
-				rank_0.Add(index, zeros);
-				rank_1.Add(index, ones);
+				rank_0.Add(SPARSE_CACHE ? cacheIndex2 : index, zeros);
+				rank_1.Add(SPARSE_CACHE ? cacheIndex2 : index, ones);
 				if (c == '1')
 				{
 					ones++;
-					select_1.Add(ones, index);
+					select_1.Add(ones, SPARSE_CACHE ? cacheIndex2 : index);
 				}
 				else if (c == '0')
 				{
 					zeros++;
-					select_0.Add(zeros, index);
+					select_0.Add(zeros, SPARSE_CACHE ? cacheIndex2 : index);
 				}
 			}
 			else

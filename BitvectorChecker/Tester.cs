@@ -4,6 +4,13 @@ namespace BitvectorChecker;
 
 public class Tester
 {
+    private const uint mask = 0x7FFFFFFF;
+    public static long RandomLong(long minLength, long maxLength)
+    {
+        return (((long)Random.Next(Math.Min((int)((minLength >> 31) & mask), (int)((maxLength >> 31) & mask)), Math.Max((int)((minLength >> 31) & mask), (int)((maxLength >> 31) & mask)))) << 31) |
+               ((long)Random.Next((int)(minLength & mask), (int)(maxLength & mask)));
+    }
+    
     private static Random Random = new ();
     
     public static Testcase NewTest(int minLength, int maxLength) => NewTest(Random.Next(minLength, maxLength)); 
@@ -66,8 +73,8 @@ public class Tester
         return testcase;
     }
     
-    public static String NewSparseTestFile(ulong minLength, ulong maxLength, string? randomParameter = null, long randomQueryCount = 1000) => NewSparseTestFile(
-        (((long)Random.Next((int)(minLength >> 32), (int)(maxLength >> 32))) << 32) | ((long) Random.Next((int)minLength, (int)maxLength)), randomQueryCount); 
+    public static String NewSparseTestFile(long minLength, long maxLength, string? randomParameter = null, long randomQueryCount = 1000) => NewSparseTestFile(
+        RandomLong(minLength, maxLength), randomQueryCount); 
     public static String NewSparseTestFile(long length, long randomQueryCount = 1000)
     {
         StringBuilder vectorbuilder = new StringBuilder();
@@ -105,16 +112,16 @@ public class Tester
         for (int k = 0; k < randomQueryCount; ++k)
         {
             float rnd = Random.NextSingle();
-            if (rnd < 0.1) commands.Add($"access {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
+            if (rnd < 0.1) commands.Add($"access {RandomLong(0, length)}");
             else if (rnd < 0.4)
             {
-                commands.Add($"rank 0 {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
-                commands.Add($"rank 1 {(long) ((long) Random.Next(0, (int)length) | (long)Random.Next(0, (int)(length >> 32)) << 32)}");
+                commands.Add($"rank 0 {RandomLong(0, length)}");
+                commands.Add($"rank 1 {RandomLong(0, length)}");
             }
             else
             {
-                commands.Add($"select 0 {(long) ((long) Random.Next(0, (int)zeros) | (long)Random.Next(0, (int)(zeros >> 32)) << 32) + 1}");
-                commands.Add($"select 1 {(long) ((long) Random.Next(0, (int)ones) | (long)Random.Next(0, (int)(ones >> 32)) << 32) + 1}");
+                commands.Add($"select 0 {RandomLong(0, zeros) + 1}");
+                commands.Add($"select 1 {RandomLong(0, ones) + 1}");
             }
         }
 

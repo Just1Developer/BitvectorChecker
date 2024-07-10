@@ -1,4 +1,6 @@
-﻿namespace BitvectorChecker;
+﻿using System.Collections;
+
+namespace BitvectorChecker;
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ public class LargeDataStructures
 	
 }
 
-public class LargeList<T>
+public class LargeList<T> : IEnumerable<T>
 {
 	private const long ChunkSize = 1L << 20; // 1 million elements per chunk
 	private List<T[]> _chunks;
@@ -50,6 +52,19 @@ public class LargeList<T>
 	}
 
 	public long Count => _count;
+
+	public IEnumerator<T> GetEnumerator()
+	{
+		for (long i = 0; i < _count; i++)
+		{
+			yield return this[i];
+		}
+	}
+
+	IEnumerator IEnumerable.GetEnumerator()
+	{
+		return GetEnumerator();
+	}
 }
 
 public class LargeDictionary<TKey, TValue>
@@ -85,6 +100,15 @@ public class LargeDictionary<TKey, TValue>
 		return GetChunk(key).TryGetValue(key, out value);
 	}
 
+	public TValue GetValueOrDefault(TKey key, TValue defaultValue = default(TValue))
+	{
+		if (TryGetValue(key, out TValue value))
+		{
+			return value;
+		}
+		return defaultValue;
+	}
+
 	public TValue this[TKey key]
 	{
 		get
@@ -94,6 +118,17 @@ public class LargeDictionary<TKey, TValue>
 		set
 		{
 			GetChunk(key)[key] = value;
+		}
+	}
+
+	public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+	{
+		foreach (var chunk in _chunks)
+		{
+			foreach (var kvp in chunk)
+			{
+				yield return kvp;
+			}
 		}
 	}
 }
