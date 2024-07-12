@@ -3,6 +3,19 @@
 using System.Text;
 using BitvectorChecker;
 
+/*
+// Temporary
+double[] fills = { 0.1, 0.5, 0.9 };
+char[] queryTypes = { 'a', 'r', 's' };
+long[] sizes = { 4500000000, 5000000000 };
+foreach (var size in sizes) {
+	foreach (var type in queryTypes) {
+		foreach (var fill in fills) {
+			Tester.NewSparseSpecificTestFile(size, 1000000, fill, type);
+			System.GC.Collect();
+		}
+	}
+}*/
 
 Evaluator.EvaluateAll("./inputEval/");
 return 0;
