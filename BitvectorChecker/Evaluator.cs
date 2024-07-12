@@ -35,10 +35,8 @@ public class Evaluator
         Dictionary<char, Dictionary<long, Dictionary<double, Data>>> data = new ();
         // Represents: <query type, <length, <fill, Data>>>
 
-        int i = 0;
         foreach (string file in sortedFiles)
         {
-            if (i++ == 5) break;
             var match = regex.Match(file);
             if (!match.Success) continue;
             string fill = match.Groups[1].Value;
@@ -62,40 +60,52 @@ public class Evaluator
             }
 
             _daDictionary[_data.Fill] = _data;
-            
-            /*
-            Dictionary<long, Dictionary<double, Data>> _dictionary = 
-                data.GetValueOrDefault(type, new Dictionary<long, Dictionary<double, Data>>());
-            
-            Dictionary<double, Data> _daDictionary = 
-                _dictionary.GetValueOrDefault(length, new Dictionary<double, Data>());
-            
-            _daDictionary.Add(_data.Fill, _data);
-            _dictionary.Add(length, _daDictionary);
-            data.Add(type, _dictionary);
-            */
         }
+        
+        // We can just afford to iterate multiple times, and its easier and faster to code
         
         // Print in table format, where top is fill, left is size, one table per type
         StringBuilder fileBuilder = new StringBuilder();
+        StringBuilder fileBuilder2 = new StringBuilder();
+        StringBuilder fileBuilder3 = new StringBuilder();
+
+        Dictionary<long, KeyValuePair<long, long>> overheads = new();
         foreach (char c in data.Keys)
         {
             Console.WriteLine($"Query Type: {c}");
             fileBuilder.AppendLine($"Query Type: {c}");
+            fileBuilder2.AppendLine($"Total time - Query Type: {c}");
             var dict = data[c];
             foreach (long l in dict.Keys)
             {
                 var dict2 = dict[l];
+                long time = 0;
+                int amt = 0;
                 foreach (double d in dict2.Keys)
                 {
                     var _data = dict2[d];
                     Console.Write($"{_data.QuerySingleAverage}\t");
                     fileBuilder.Append($"{_data.QuerySingleAverage}\t");
+                    time += _data.Time;
+                    ++amt;
+                    if (!overheads.ContainsKey(_data.Length)) overheads.Add(_data.Length, new KeyValuePair<long, long>(0, 0));
+                    overheads[_data.Length] = new KeyValuePair<long, long>(overheads[_data.Length].Key + _data.Space, overheads[_data.Length].Value + 1);
                 }
                 Console.WriteLine();
                 fileBuilder.AppendLine();
+                fileBuilder2.AppendLine($"{(long) Math.Round((double) time / amt)}");
             }
         }
+        fileBuilder3.AppendLine($"Total Sizes:");
+        foreach (var k in overheads.Keys)
+        {
+            var kvp = overheads[k];
+            //double d = ((((double)kvp.Key / kvp.Value) * 100) / (100 * k));
+            //fileBuilder3.AppendLine($"{k}\t{(long) Math.Round((double)kvp.Key / kvp.Value)}\t{d}");
+            fileBuilder3.AppendLine($"{k}\t{(long) Math.Round((double)kvp.Key / kvp.Value)}");
+        }
+
+        fileBuilder.AppendLine(fileBuilder2.ToString()).AppendLine(fileBuilder3.ToString());
         
         File.WriteAllText("./eval.tsv", fileBuilder.ToString());
     }
@@ -134,8 +144,8 @@ public class Evaluator
             var match = regex.Match(resultEntry);
             if (match.Success)
             {
-                Time = int.Parse(match.Groups[1].Value);
-                Space = int.Parse(match.Groups[2].Value);
+                Time = long.Parse(match.Groups[1].Value);
+                Space = long.Parse(match.Groups[2].Value);
             }
             else
             {
