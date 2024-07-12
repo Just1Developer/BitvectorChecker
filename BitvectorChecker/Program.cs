@@ -3,6 +3,45 @@
 using System.Text;
 using BitvectorChecker;
 
+
+Evaluator.EvaluateAll("./inputEval/");
+return 0;
+
+
+
+
+double[] fills = { 0.1, 0.5, 0.9 };
+char[] queryTypes = { 'a', 'r', 's' };
+long[] sizes = { 10000000, 50000000, 100000000, 250000000, 500000000, 750000000, 1000000000, 1500000000, 2000000000, 2500000000, 3000000000, 3500000000, 4000000000, 5000000000 };
+
+// Created 7 of size 4 million
+
+int iti = 0;
+// Test File Generation for Evaluation
+foreach (var size in sizes) {
+	if (size < 4000000000) continue;
+	if (size > 4000000000) break;
+	foreach (var type in queryTypes) {
+		foreach (var fill in fills) {
+			if (iti++ < 7) continue;
+			Tester.NewSparseSpecificTestFile(size, 1000000, fill, type);
+			System.GC.Collect();
+		}
+	}
+}
+return 0;
+
+
+
+
+
+
+
+
+
+
+
+
 // This creates a new Testfile and runs it. Usually, this is all you need. In the Analysis you can see the filename, if you want to
 // Test the specific file again. Calls below test the specific file "input4". This just addresses the file ./input/input4.in
 

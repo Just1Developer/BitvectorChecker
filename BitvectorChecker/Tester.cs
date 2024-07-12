@@ -146,6 +146,79 @@ public class Tester
 
         return $"input{j}";
     }
+    
+    public static void NewSparseSpecificTestFile(long length, long queryCount, double fill, char queryType)
+    {
+        
+        
+        // Generate Testcase and Input file
+        int j = 0;
+        string path = "./inputEval/input";
+        if (!Directory.Exists("./inputEval/")) Directory.CreateDirectory("./inputEval/");
+        while (File.Exists(path + $"{j}.in")) j++;
+
+        string _path = $"{path}{j}-f{fill}-s{length}-q{queryCount}-t{queryType}.in";
+
+        if (!Directory.Exists("./inputEval/"))
+            Directory.CreateDirectory("./inputEval/");
+
+        using (var stream = new FileStream(_path, FileMode.OpenOrCreate, FileAccess.Write))
+        using (var writer = new StreamWriter(stream, Encoding.ASCII))
+        {
+            writer.WriteLine(queryCount);
+
+            long ones = 0, zeros = 0;
+            for (long i = 0; i < length; ++i)
+            {
+                if (Random.NextDouble() < fill)
+                {
+                    writer.Write("1");
+                    ones++;
+                }
+                else
+                {
+                    writer.Write("0");
+                    zeros++;
+                }
+            }
+            writer.WriteLine(); // To add a new line after bit vector
+            
+            
+            if (queryType == 'a')
+            {
+                for (int k = 0; k < queryCount; ++k)
+                {
+                    writer.WriteLine($"access {RandomLong(0, length)}");
+                }
+            } else if (queryType == 'r')
+            {
+                for (int k = 0; k < queryCount; ++k)
+                {
+                    double rnd = Random.NextDouble();
+                    if (rnd >= fill) {
+                        writer.WriteLine($"rank 1 {RandomLong(0, length)}");
+                    } else {
+                        writer.WriteLine($"rank 0 {RandomLong(0, length)}");
+                    }
+                }
+            } else if (queryType == 's')
+            {
+                for (int k = 0; k < queryCount; ++k)
+                {
+                    double rnd = Random.NextDouble();
+                    if (rnd >= fill) {
+                        writer.WriteLine($"select 1 {RandomLong(0, ones)}");
+                    } else {
+                        writer.WriteLine($"select 0 {RandomLong(0, zeros)}");
+                    }
+                }
+            }
+        }
+
+        Console.WriteLine("Created Bitvector of Length: " + length);
+
+        //return $"input{j}-f{fill}-s{length}-q{queryCount}-t{queryType}";
+    }
 
     public static void AddCommandToBuilder(ref StringBuilder builder, ref List<string> list, int index)
     {

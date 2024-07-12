@@ -31,6 +31,22 @@ public static class Executable
 
         return process;
     }
+    internal static Process GetBitvectorProcess3_unix(string inputFileName, string outputFileName = "./out/output.txt", string engineName = program_name)
+    {
+        if (!File.Exists(engineName))
+        {
+            Console.Error.WriteLine($"Engine {engineName} does not exist, switching to default {program_name}");
+            engineName = program_name;
+        }
+        string executablePath = $"./{engineName}";  // Path to the executable in the application directory
+        string arguments = $"{inputFileName} {outputFileName}";
+
+        Process process = new Process();
+        process.StartInfo = GetStartInfo(Environment.CurrentDirectory, executablePath, arguments);
+        process.EnableRaisingEvents = true;
+
+        return process;
+    }
     private static Process GetBitvectorProcess2_win(string inputFileName, string engineName)
     {
         engineName += ".exe";
